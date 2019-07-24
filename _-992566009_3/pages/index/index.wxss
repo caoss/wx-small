@@ -1,0 +1,220 @@
+.container {
+    background: #000000;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.itemList {
+    width: 750rpx;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.itemList .item {
+    width: 700rpx;
+    margin: 0 auto;
+    background: #181818;
+    height: 200rpx;
+    border-radius: 10rpx;
+    margin-bottom: 40rpx;
+}
+
+.item image {
+    width: 700rpx;
+    height: 200rpx;
+}
+
+.scrollTxt,.light,.scrollLight {
+    width: 700rpx;
+    height: 200rpx;
+    overflow: hidden;
+}
+
+.scrollTxt text {
+    width: 700rpx;
+    color: #ffffff;
+    font-size: 62rpx;
+    text-align: center;
+    line-height: 200rpx;
+    display: inline-block;
+    transition: all 1s linear;
+    animation: zimu1 7s linear 0s infinite normal running;
+}
+
+.scrollLight text {
+    width: 700rpx;
+    color: #ffffff;
+    font-size: 62rpx;
+    text-align: center;
+    line-height: 200rpx;
+    display: inline-block;
+    transition: all 1s linear;
+    animation: scrollLight 5s linear 0s infinite normal running;
+}
+
+@-webkit-keyframes zimu1 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes zimu1 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scrollLight {
+    0% {
+        transform: translateX(100%);
+        text-shadow: 0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #FF1177,0 0 70px #FF1177,0 0 80px #FF1177,0 0 100px #FF1177,0 0 150px #FF1177;
+    }
+
+    33% {
+        transform: translateX(35%);
+        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #FF1177,0 0 35px #FF1177,0 0 40px #FF1177,0 0 50px #FF1177,0 0 75px #FF1177;
+    }
+
+    66% {
+        transform: translateX(-35%);
+        text-shadow: 0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #FF1177,0 0 70px #FF1177,0 0 80px #FF1177,0 0 100px #FF1177,0 0 150px #FF1177;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #FF1177,0 0 35px #FF1177,0 0 40px #FF1177,0 0 50px #FF1177,0 0 75px #FF1177;
+    }
+}
+
+@keyframes scrollLight {
+    0% {
+        transform: translateX(100%);
+        text-shadow: 0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #FF1177,0 0 70px #FF1177,0 0 80px #FF1177,0 0 100px #FF1177,0 0 150px #FF1177;
+    }
+
+    33% {
+        transform: translateX(35%);
+        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #FF1177,0 0 35px #FF1177,0 0 40px #FF1177,0 0 50px #FF1177,0 0 75px #FF1177;
+    }
+
+    66% {
+        transform: translateX(-35%);
+        text-shadow: 0 0 10px #fff,0 0 20px #fff,0 0 30px #fff,0 0 40px #FF1177,0 0 70px #FF1177,0 0 80px #FF1177,0 0 100px #FF1177,0 0 150px #FF1177;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #FF1177,0 0 35px #FF1177,0 0 40px #FF1177,0 0 50px #FF1177,0 0 75px #FF1177;
+    }
+}
+
+.light text {
+    width: 700rpx;
+    color: azure;
+    font-size: 64rpx;
+    text-align: center;
+    line-height: 200rpx;
+    display: block;
+    text-shadow: 0 0 10px azure,0 0 20px aqua,0 0 40px dodgerblue,0 0 80px blue;
+    will-change: filter,color;
+    filter: saturate(60%);
+    animation: flicker steps(100) 1s 1s infinite;
+}
+
+@-webkit-keyframes flicker {
+    50% {
+        color: white;
+        filter: saturate(200%) hue-rotate(20deg);
+    }
+}
+
+@keyframes flicker {
+    50% {
+        color: white;
+        filter: saturate(200%) hue-rotate(20deg);
+    }
+}
+
+.gamelist {
+    width: 700rpx;
+    overflow: hidden;
+    background: #181818;
+    padding: 30rpx;
+    border-radius: 20rpx;
+    margin: 0 auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+.gamelist .top {
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: left;
+    font-size: 28rpx;
+    color: #ffffff;
+}
+
+.gamelist .scrollGame {
+    height: 190rpx;
+    width: 100%;
+}
+
+.gameitems {
+    white-space: nowrap;
+    display: block;
+    text-align: left;
+    width: auto;
+}
+
+.gameitems .item {
+    width: 120rpx;
+    height: 170rpx;
+    margin-right: 30rpx;
+    text-align: center;
+    margin-top: 30rpx;
+    display: inline-block;
+}
+
+.gameitems .item image {
+    width: 120rpx;
+    height: 120rpx;
+    display: block;
+    border-radius: 15rpx;
+}
+
+.gameitems .item .name {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    color: #ffffff;
+    display: block;
+}
+
+@-webkit-keyframes zimu2 {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes zimu2 {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

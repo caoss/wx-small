@@ -1,0 +1,25 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/detail/scroll",
+        "pages/detail/light",
+        "pages/detail/canvas",
+        "pages/detail/scrolllight",
+        "tradis/h5/h5"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#000000",
+        "navigationBarTitleText": "弹幕文字",
+        "navigationBarTextStyle": "white",
+        "navigationStyle": "custom",
+        "backgroundColor": "#000000",
+        "backgroundColorTop": "#000000",
+        "backgroundColorBottom": "000000",
+        "pageOrientation": "portrait"
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wxa331708430664298",
+        "wx68455c92a501ca84"
+    ]
+}

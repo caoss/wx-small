@@ -1,0 +1,26 @@
+<view>
+    <canvas canvasId="t" class="canvas"></canvas>
+    <image bindtap="onPreviewImage" class="shareImage" src="{{imageUrl}}"></image>
+    <view class="adWrapper"></view>
+    <view class="tjcp">
+        <view class="tip">
+            <text>推荐产品</text>
+        </view>
+        <view class="list_box" wx:if="{{!naviToMiniProgramVisible}}" wx:for="{{list}}" wx:key="{{index}}">
+            <navigator appId="{{item.app_id}}" id="{{item.id}}" openType="navigate" path="{{item.app_url}}" target="miniProgram">
+                <image mode="aspectFill" src="{{item.xcx_logo}}"></image>
+            </navigator>
+            <text>{{item.name}}</text>
+        </view>
+        <view bindtap="banner_href" class="list_box" id="{{index}}" wx:if="{{naviToMiniProgramVisible}}" wx:for="{{list}}" wx:key="{{index}}">
+            <image mode="aspectFill" src="{{item.xcx_logo}}"></image>
+            <text>{{item.name}}</text>
+        </view>
+    </view>
+    <view class="buttons">
+        <view class="item">
+            <button class="cover" openType="share">发送给朋友</button>
+            <image class="item-icon" src="../../assets/icon-chat.png"></image> 分享给好友
+    </view>
+    </view>
+</view>

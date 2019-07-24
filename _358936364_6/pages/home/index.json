@@ -1,0 +1,10 @@
+{
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "category-item": "/components/category-item/index",
+        "category": "/components/category/index",
+        "header": "/components/header/index",
+        "ypage": "/components/page/index"
+    }
+}

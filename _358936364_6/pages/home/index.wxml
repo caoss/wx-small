@@ -1,0 +1,50 @@
+<ypage class="home-con">
+    <header backgroundColor="#FFF" bind:onLeftTap="_onLeftTap" bind:onTitleTap="_onTitleTap" leftIcon="../../images/icon_thumbnails.png" showLeft="{{!showCategory}}" title="{{props.homeStore.currentType.cateName}}" titleIcon="../../images/icon_expand.png" titleIconR="{{showCategory}}" type="{{1}}"></header>
+    <view class="swiper-con">
+        <view class="desc-main">
+            <view class="desc-con">
+                <view class="desc-txt" wx:if="{{props.homeStore.wallpaperStat.newImgCnt!=0}}">
+                    <text>今日增加了</text>
+                    <text class="desc_txt_color">{{props.homeStore.wallpaperStat.newImgCnt}}</text>
+                    张,
+                    <text class="desc_txt_color">{{props.homeStore.wallpaperStat.totalDownloadCnt}}</text> 人下载
+                </view>
+                <view class="desc-txt" wx:if="{{props.homeStore.wallpaperStat.newImgCnt==0}}">
+                    <text class="desc_txt_color">{{props.homeStore.wallpaperStat.totalDownloadCnt}}</text> 人下载
+                </view>
+            </view>
+            <view bindtap="_onLeftTap" class="desc_img">
+                <image class="icon" src="../../images/icon_thumbnails.png"></image>
+                小图浏览
+            </view>
+        </view>
+        <view class="swiper_area">
+            <swiper bindanimationfinish="onAnimationfinish" bindchange="onImageChange" circular="{{false}}" current="{{currentIndex}}" nextMargin="44rpx" previousMargin="44rpx">
+                <swiper-item class="swiper-item" wx:for="{{props.homeStore.wallpaperData.list}}" wx:key="{{index}}">
+                    <image bindtap="tabImage" class="slide-image {{index===currentIndex?'active':''}}" data-current-index="{{index}}" mode="aspectFill" src="{{item.imgUrl+'?imageMogr2/thumbnail/640x'}}"></image>
+                    <view bindtap="_upImgs" class="uploadBtn">
+                        <image class="action-icon" src="../../images/icon_download.png"></image>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view bindtap="_redirectH5" class="ad_img">
+            <ad unitId="adunit-11bf4f4330ee3d37"></ad>
+        </view>
+        <category bind:onItemTap="_onCayegoryChange" data="{{props.homeStore.wallpaperCategory}}" show="{{showCategory}}"></category>
+        <view class="up_nav_con" wx:if="{{showUpDialog}}">
+            <view bindtap="_upImgs" class="modal"></view>
+            <view class="up_navs">
+                <view bindtap="_tapDownload" class="up_navs_li" data-index="1">
+                    <text class="up_navs_li_txt">高清{{bigSize+'M'}}</text>
+                </view>
+                <view bindtap="_tapDownload" class="up_navs_li" data-index="2">
+                    <text class="up_navs_li_txt">标清{{smallSize+'M'}}</text>
+                </view>
+                <view bindtap="_upImgs" class="up_navs_li">
+                    <text class="up_navs_li_cancle">取消</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</ypage>

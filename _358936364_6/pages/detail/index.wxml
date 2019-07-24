@@ -1,0 +1,27 @@
+<view class="wall-con" wx:if="{{currentIndex!==null}}">
+    <touch-container bind:onSwipe="_onSwipe">
+        <header></header>
+        <swiper bindanimationfinish="onAnimationfinish" bindchange="onImageChange" current="{{currentIndex}}">
+            <swiper-item wx:for="{{props.homeStore.cur_type?props.homeStore.wallpaperDataColum.list:props.homeStore.wallpaperData.list}}" wx:key="{{index}}">
+                <image class="wall-image {{props.homeStore.currentType.onlyAvatar?'act':''}}" data-current-index="{{index}}" mode="aspectFill" src="{{item.imgUrl+'?imageMogr2/thumbnail/540x'}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="action-pos" wx:if="{{showAction}}">
+            <view bindtap="_tapDownload" class="action-item action-margin" data-index="1" hoverClass="none">
+                <image class="action-icon" src="../../images/icon_download.png"></image>
+                高清 {{bigSize+'M'}}
+            </view>
+            <view bindtap="_tapDownload" class="action-item action-margin" data-index="2" hoverClass="none">
+                <image class="action-icon" src="../../images/icon_download.png"></image>
+                标清 {{smallSize+'M'}}
+            </view>
+        </view>
+    </touch-container>
+    <view bindtap="_cancelPoster" class="modal" wx:if="{{showPoster}}">
+        <ypage>
+            <view class="modal-content">
+                <share-canvas posterData="{{posterData}}"></share-canvas>
+            </view>
+        </ypage>
+    </view>
+</view>

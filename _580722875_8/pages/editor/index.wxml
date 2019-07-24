@@ -1,0 +1,29 @@
+<import src="../../utils/we-cropper.wxml"></import>
+
+<view class="contentWrapper" style="margin-top: {{contentTop}}rpx">
+    <view class="content">
+        <canvas bindtouchend="handleTouchEnd" bindtouchmove="handleTouchMove" bindtouchstart="handleTouchStart" canvasId="baseCanvas" class="canvas" disableScroll="true"></canvas>
+    </view>
+</view>
+
+<view class="actionContainer" style="padding-bottom: {{isPhoneX?68:0}}rpx">
+
+    <view bindtap="handlePreview" class="saveButton">
+        <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAwUExURUdwTP///////////////////////////////////////////////////////////0Q+7AIAAAAPdFJOUwAc3Q/ryS2DCZf427UfScQp6KQAAADdSURBVFjD7dUxCsJAEAXQyDY2QhA7Gz2BNttbpfUICl5ArOy0sRe090TiHTyBhFil+Ia4a1LOBxGE/+sdHtmZ2SSJoiiKovxJ3DnfkiVD4LmnKjoTAGuqpF9VYEQjeNAIZjSCI42UUxoZ00iefhlxKxbp3XAlkQFQLLkvuVRHMu665mgxtuuqD2VUT+pTgTH2ZNcw1sYf8GGsjXeLyNiny0fGPl2RYUY4MHdihAMDZk98U2HdkxZjXkbPIi2G2HgPeuMDwzwrb4ZBAkMhNVOmXEl3U5z0+1YURVF+mxdMlgkR/tIHiAAAAABJRU5ErkJggg=="></image>
+    </view>
+
+    <view class="categoryList" style="width:{{hats.length*120}}rpx">
+        <view bindtap="onCategoryClick" class="cateIconWrapper {{currentCat===index?'active':''}}" data-index="{{index}}" wx:for="{{hats}}" wx:key="{{index}}">
+            <image class="cateIcon" src="{{item.icon[currentCat===index?'active':'default']}}"></image>
+        </view>
+    </view>
+
+    <scroll-view scrollX class="hatList">
+        <view class="list">
+            <view bindtap="handleClickHat" class="item {{currentHat===index&&'active'}}" data-index="{{index}}" data-src="{{item}}" wx:for="{{hats[currentCat].items}}" wx:key="{{index}}">
+                <image class="icon" mode="aspectFit" src="{{item}}"></image>
+            </view>
+        </view>
+    </scroll-view>
+
+</view>

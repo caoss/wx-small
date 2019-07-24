@@ -1,0 +1,31 @@
+<view class="nav_top" style="height:{{top}}"></view>
+<view class="navigationPannel">
+    <image bindtap="back" class="backBtn" mode="aspectFit" src="../../img/back_white.png"></image>
+    <view class="title">黑科技</view>
+</view>
+<ad class="alignBottom" unitId="adunit-3dcfb4553e1291ad" wx:if="{{showBottomAd}}"></ad>
+<view class="drlist">
+    <view bindtap="showZhezhao" class="drli">
+        <view class="left">
+            <image class="img" src="/img/dcx.png"></image>
+            <view class="rtop">
+                <text class="f36 c2f spac">单词行</text>
+                <text class="f24 c6d spac">关注就能免费领福利，超值大礼包，手慢无</text>
+            </view>
+        </view>
+        <view class="rig">
+            <image class="img" src="/img/arrow.png"></image>
+        </view>
+    </view>
+    <block wx:for="{{dsts}}">
+        <template is="{{item.cat}}" data="{{item:item}}" wx:if="{{naviToMiniProgramVisible}}"></template>
+        <template is="{{item.cat+'1'}}" data="{{item:item}}" wx:if="{{!naviToMiniProgramVisible}}"></template>
+    </block>
+    <view class="dzad_wrap">
+        <dzad aid="dz115c18963f01d34"></dzad>
+    </view>
+</view>
+<view class="h20"></view>
+<import src="/common/wxml/template.wxml"></import>
+<include src="/common/wxml/join.wxml"></include>
+<template is="yinyu_fuli_hint" data="{{yinyu_fuli_hint:yinyu_fuli_hint}}"></template>

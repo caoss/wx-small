@@ -1,0 +1,10 @@
+<ypage class="home-con">
+    <header backgroundColor="red" bind:onTitleTap="_onTitleTap" title="{{props.homeStore.currentType.cateName}}" titleIcon="../../images/icon_expand_top.png"></header>
+    <scroll-view bindscrolltolower="_loadMoreWallPaper" class="category" scrollY="true">
+        <view class="col" wx:for="{{props.homeStore.wallpaperCategory.list}}" wx:key="{{index}}">
+            <view bindtap="_changeCategory" class="category-item-con" data-index="{{index}}" data-type="{{item.id}}">
+                <category-item data="{{item}}"></category-item>
+            </view>
+        </view>
+    </scroll-view>
+</ypage>

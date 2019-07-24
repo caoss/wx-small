@@ -1,0 +1,9 @@
+<view class="category-pos {{show?'category-show':''}}">
+    <scroll-view bindscrolltolower="_loadMoreWallPaper" class="category" scrollY="true">
+        <view class="col" wx:for="{{data.list?data.list:[]}}" wx:key="{{index}}">
+            <view bindtap="_onItemTap" class="category-item-con" data-index="{{index}}" data-onlyAvatar="{{item.onlyAvatar}}" data-type="{{item.type}}">
+                <category-item data="{{item}}"></category-item>
+            </view>
+        </view>
+    </scroll-view>
+</view>

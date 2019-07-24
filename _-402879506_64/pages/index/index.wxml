@@ -1,0 +1,108 @@
+<view catchtap="setView" class="body" style="background-color:{{roll.bgcol}}">
+    <view class="txt {{view.category==0?'':'hide'}}" style="left: {{view.tleft}}px;color: {{roll.col}};font-size: {{rollTextHaveFace?74:roll.fz}}px; top: {{roll.top}}px; transform:rotate(90deg) translateX({{roll.move}}px);	transition-duration: {{roll.time}}s; ">{{roll.txt}}</view>
+    <view class="ftxt {{view.category==1?'':'hide'}}" style="left: {{view.tleft}}px;font-size: {{fluore.fz}}px; top: {{fluore.top}}px;">
+        <view class="{{item.show&&item.edit?'':'hide'}}" style=" display:inline-block;width:{{fluore.fz}}px;color: {{view.footShow?item.col:item.anicol}}; height:{{fluore.fz}}px;font-size:{{item.shtxt.length>1&&isAndroid?74:fluore.fz}}px;text-align: center;line-height: {{fluore.fz}}px; animation: {{view.footShow?'':item.animat}} 4s ease-in-out infinite alternate;" wx:for="{{fluore.fluoreData}}">{{item.shtxt}}</view>
+    </view>
+</view>
+<view class="foot-choice-col {{view.isfCol?'opy3':''}}">
+    <view catchtap="setFCol" class="{{fluore.ckey==index?'curt':''}}" data-key="{{index}}" style="background-color: {{item}};" wx:for="{{fluore.cArray}}"></view>
+</view>
+<view class="foot-choice-col {{view.isrCol?'opy1':''}}">
+    <view catchtap="setCol" class="{{roll.ckey==index?'curt':''}} " data-key="{{index}}" style="background-color: {{item}};" wx:for="{{roll.cArray}}"></view>
+</view>
+<view class="foot-choice-col foot-choice-font speed-choice {{view.isSpeed?'opy1':''}}">
+    <view catchtap="setSpeed" class="{{roll.skey==0?'curt':''}}" data-key="0">慢</view>
+    <view catchtap="setSpeed" class="{{roll.skey==1?'curt':''}}" data-key="1">正常</view>
+    <view catchtap="setSpeed" class="{{roll.skey==2?'curt':''}}" data-key="2">快</view>
+</view>
+<view class="foot-choice-col foot-choice-font fluore-ft  {{view.isFont?'opy1':''}}">
+    <view catchtap="setfz" class="{{view.fkey==index?'curt':''}} " data-key="{{index}}" style="background-color: {{item}};" wx:for="{{view.flArray}}">{{item}}</view>
+</view>
+<view cattap="cattap" class="foot" wx:if="{{view.footShow}}">
+    <view cattap="cattap" class="roll" wx:if="{{view.rollShow}}">
+        <view bindtap="swFluore" class="ml20 {{focus?'hide':''}}" hoverClass="on">
+            <image class="img" src="../../img/icon_list.png"></image>
+        </view>
+        <input adjustPosition="true" bindblur="inputEnd" bindfocus="focus" bindinput="listenerVal" class="ml20 {{focus?'inputFocus':''}}" cursorSpacing="{{cursorSpace}}" placeholder="请输入..." placeholderStyle="color:rgba(255,255,255,0.6)" value="{{temptxt}}"></input>
+        <form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+            <button bindtap="setInfo" class="ml20 btn_none {{focus?'hide':''}}" formType="submit">
+                <image class="img" src="../../img/set.png"></image>
+            </button>
+        </form>
+        <view bindtap="makeGif" class="ml20 mr20 {{focus?'hide':''}}" hoverClass="on">
+            <image class="img " src="../../img/gif.png"></image>
+        </view>
+        <view bindtouchstart="hide_button">
+            <button class="mr20 shtxt done {{focus?'':'hide'}}" openType="share">发送</button>
+        </view>
+    </view>
+    <view cattap="cattap" class="fluore" wx:if="{{view.fluoreShow}}">
+        <image bindtap="swToll" class="img" src="../../img/icon_list.png"></image>
+        <view class="f-ginput">
+            <input adjustPosition="false" bindblur="fbuur" bindfocus="ffocus" bindinput="finput" class="{{fluore.inpkey==index?'curt':''}} {{item.edit?'':'hide'}}" data-key="{{index}}" maxlength="10" style="color: {{item.col}};" value="{{item.txt}}" wx:for="{{fluore.fluoreData}}"></input>
+        </view>
+        <view bindtap="showfz" class="shtxt ml0  {{isFont?'curt':''}} ">{{view.vtxt}}</view>
+    </view>
+</view>
+<view cattap="cattap" class="ftset footer-choice {{view.isSet?'':'b440'}}  ">
+    <view class="footer-choice-list">
+        <view catchtap="menuTap" class="font {{menuTapCurrent=='0'?'on':''}} none" data-current="0">
+            <image src="../../img/font.png"></image>
+            <text>字体</text>
+        </view>
+        <view catchtap="menuTap" class="font-size {{menuTapCurrent=='1'?'on':''}}" data-current="1">
+            <image src="../../img/font_size.png"></image>
+            <text>字号</text>
+        </view>
+        <view catchtap="menuTap" class="font-color {{menuTapCurrent=='2'?'on':''}}" data-current="2">
+            <image src="../../img/font_color.png"></image>
+            <text>颜色</text>
+        </view>
+        <view catchtap="menuTap" class="font-speed {{menuTapCurrent=='3'?'on':''}}" data-current="3">
+            <image src="../../img/font_speed.png"></image>
+            <text>速度</text>
+        </view>
+        <view catchtap="menuTap" class="bg_color {{menuTapCurrent=='4'?'on':''}}" data-current="4">
+            <image src="../../img/bg_color.png"></image>
+            <text>背景</text>
+        </view>
+    </view>
+    <view bindtap="doneSet" class="newdone">
+        <text>完成</text>
+    </view>
+    <view class="footer_list" hidden="{{menuTapCurrent!='1'}}">
+        <view class="listStyle_1">
+            <view catchtap="setfz" class="{{view.fkey==index?'curt':''}} " data-key="{{index}}" wx:for="{{view.ftArray}}">{{item}}
+          <image class="{{view.fkey==index?'show':''}} " src="../../img/on.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="footer_list" hidden="{{menuTapCurrent!='3'}}">
+        <view class="listStyle_1">
+            <view catchtap="setSpeed" class="{{roll.skey==0?'curt':''}}" data-key="0">慢
+        <image class="{{roll.skey==0?'show':''}}" src="../../img/on.png"></image>
+            </view>
+            <view catchtap="setSpeed" class="{{roll.skey==1?'curt':''}}" data-key="1">正常
+        <image class="{{roll.skey==1?'show':''}}" src="../../img/on.png"></image>
+            </view>
+            <view catchtap="setSpeed" class="{{roll.skey==2?'curt':''}}" data-key="2">快
+        <image class="{{roll.skey==2?'show':''}}" src="../../img/on.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="footer_list" hidden="{{menuTapCurrent!='2'}}">
+        <scroll-view class="scroll-view_H listStyle_2 scroll-x" scrollIntoView="{{toView_color}}" scrollWithAnimation="true" scrollX="true" style="width: 670rpx">
+            <view catchtap="setCol" class="{{roll.ckey==index?'curt':''}} " data-key="{{index}}" id="{{order[index]}}" style="background-color: {{item}};" wx:for="{{roll.cArray}}"></view>
+        </scroll-view>
+    </view>
+    <view class="footer_list" hidden="{{menuTapCurrent!='4'}}">
+        <scroll-view class="scroll-view_H listStyle_2 scroll-x" scrollIntoView="{{toView_bgcolor}}" scrollWithAnimation="true" scrollX="true" style="width: 670rpx">
+            <view catchtap="setbgCol" class="{{roll.bgckey==index?'curt':''}} " data-key="{{index}}" id="{{order[index]}}" style="background-color: {{item}};" wx:for="{{roll.bgcArray}}"></view>
+        </scroll-view>
+    </view>
+</view>
+<view wx:if="{{view.footShow}}">
+    <image bindtap="showZhezhao" class="ADimg" mode="aspectFit" src="/img/ad_yinyu_fuli.png"></image>
+</view>
+<import src="/common/wxml/template.wxml"></import>
+<template is="yinyu_fuli_hint" data="{{yinyu_fuli_hint:yinyu_fuli_hint}}"></template>

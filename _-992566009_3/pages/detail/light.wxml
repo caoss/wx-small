@@ -1,0 +1,26 @@
+<import src="../../commpents/navBar/navBar.wxml"></import>
+<template is="navbar" data="{{navBar:navBar}}"></template>
+<view class="container {{showInput==false?'active':''}}">
+    <view bindtap="Showtap" class="scrollTxt" style="width:{{wH}}rpx;height:{{wW}}rpx;transform: rotate(90deg);transform-origin:375rpx 375rpx;">
+        <view class="text" style="font-size:{{fontSize[select.obj.fontSize].size}};}}">
+            <text class="{{showInput==false?'active':''}}" style="color:{{color[item.color]}};animation: {{showInput==false?animate[item.color]:''}} 4s ease-in-out infinite alternate;" wx:if="{{index<select.obj.maxSize}}" wx:for="{{textList}}">{{item.name}}</text>
+        </view>
+    </view>
+    <view class="footBox {{showInput==true?'active':''}} {{showOption==true?'opacity':''}} " style="{{model==1?'padding-bottom:34rpx;':''}}">
+        <view bindtap="goHome" class="fl">
+            <image src="../../images/icon_list.png"></image>
+        </view>
+        <input bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputIn" class="inputBox" data-index="{{index}}" maxlength="1" placeholder="..." style="color:{{color[item.color]}}" value="{{item.name}}" wx:if="{{index<select.obj.maxSize}}" wx:for="{{textList}}"></input>
+        <view bindtap="selectFontBox" class="FontBox">
+            <text>{{fontSize[select.obj.fontSize].name}}</text>
+            <view class="fontList {{showFont==true?'active':''}}">
+                <view bindtap="selectFontSize" class="fontItem" data-index="{{index}}" wx:for="{{fontSize}}">{{item.name}}</view>
+            </view>
+        </view>
+        <view class="colorBox {{showOption==true?'active':''}}">
+            <view class="items">
+                <view bindtap="selectColor" class="item" data-index="{{index}}" style="background:{{item}}" wx:for="{{color}}"></view>
+            </view>
+        </view>
+    </view>
+</view>

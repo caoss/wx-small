@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "disableScroll": true,
+    "usingComponents": {
+        "header": "/components/header/index",
+        "ypage": "/components/page/index"
+    }
+}

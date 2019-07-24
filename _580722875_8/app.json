@@ -1,0 +1,16 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/selector/index",
+        "pages/editor/index",
+        "pages/saved/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#171717",
+        "navigationBarTitleText": "头像",
+        "navigationBarTextStyle": "white"
+    },
+    "navigateToMiniProgramAppIdList": [
+    ]
+}

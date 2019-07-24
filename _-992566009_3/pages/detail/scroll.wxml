@@ -1,0 +1,55 @@
+<import src="../../commpents/navBar/navBar.wxml"></import>
+<template is="navbar" data="{{navBar:navBar}}"></template>
+<view class="container" style=" background:{{color[select.obj.background]}};">
+    <view bindtap="Showtap" class="scrollTxt" style="width:{{wH}}rpx;height:{{wW}}rpx;transform: rotate(90deg);transform-origin:375rpx 375rpx;">
+        <text style="font-size:{{fontSize[select.obj.fontSize].size}};animation: zimu1 {{speed[select.obj.speed].time}} linear 0s infinite normal running;color:{{color[select.obj.color]}}">{{select.text}}</text>
+    </view>
+    <view class="footBox {{showInput==true?'active':''}} {{showOption==true?'opacity':''}} " style="{{model==1?'padding-bottom:34rpx;':''}}">
+        <view bindtap="goHome" class="fl">
+            <image src="../../images/icon_list.png"></image>
+        </view>
+        <input bindfocus="inputFocus" bindinput="inputIn" class="inputBox" placeholder="请输入..."></input>
+        <view bindtap="MenuTap" class="colorBox">
+            <image src="../../images/color.png"></image>
+        </view>
+    </view>
+    <view class="footMenu {{showMenus==true?'active':''}}" style="{{model==1?'padding-bottom:34rpx;':''}}">
+        <view class="tags">
+            <view bindtap="tagTap" class="tag {{select.type==1?'active':''}}" data-type="1">
+                <image src="../../images/zt.png"></image>
+                <text>字号</text>
+            </view>
+            <view bindtap="tagTap" class="tag {{select.type==2?'active':''}}" data-type="2">
+                <image src="../../images/ys.png"></image>
+                <text>颜色</text>
+            </view>
+            <view bindtap="tagTap" class="tag {{select.type==3?'active':''}}" data-type="3">
+                <image src="../../images/sd.png"></image>
+                <text>速度</text>
+            </view>
+            <view bindtap="tagTap" class="tag {{select.type==4?'active':''}}" data-type="4">
+                <image src="../../images/bj.png"></image>
+                <text>背景</text>
+            </view>
+            <view bindtap="MenuTap" class="btn">完成</view>
+        </view>
+        <view class="selectBox">
+            <view class="select_1" wx:if="{{select.type==1}}">
+                <view bindtap="cgOption" class="option {{select.obj.fontSize==index?'active':''}}" data-index="{{index}}" data-type="font" wx:for="{{fontSize}}">{{item.name}}</view>
+            </view>
+            <scroll-view class="scrollView" scrollLeft="0" scrollX="true" wx:if="{{select.type==2}}">
+                <view class="select_2">
+                    <view bindtap="cgOption" class="option {{select.obj.color==index?'active':''}}" data-index="{{index}}" data-type="color" style="background:{{item}}" wx:for="{{color}}"></view>
+                </view>
+            </scroll-view>
+            <view class="select_1" wx:if="{{select.type==3}}">
+                <view bindtap="cgOption" class="option {{select.obj.speed==index?'active':''}}" data-index="{{index}}" data-type="speed" wx:for="{{speed}}">{{item.time}}</view>
+            </view>
+            <scroll-view class="scrollView" scrollLeft="0" scrollX="true" wx:if="{{select.type==4}}">
+                <view class="select_2">
+                    <view bindtap="cgOption" class="option {{select.obj.background==index?'active':''}}" data-index="{{index}}" data-type="background" style="background:{{item}}" wx:for="{{color}}"></view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

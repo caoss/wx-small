@@ -1,0 +1,31 @@
+<ypage class="home-con">
+    <header backgroundColor="#FFF" bind:onLeftTap="_onLeftTap" bind:onTitleTap="_onTitleTap" leftIcon="../../images/icon_large.png" showLeft="{{!showCategory}}" title="{{props.homeStore.currentType.cateName}}" titleIcon="../../images/icon_expand.png" titleIconR="{{showCategory}}" type="{{1}}"></header>
+    <view class="wallpaper">
+        <view class="desc-main">
+            <view class="desc-con">
+                <view class="desc-txt" wx:if="{{props.homeStore.wallpaperStat.newImgCnt!=0}}">
+                    <text>今日增加了</text>
+                    <text class="desc_txt_color">{{props.homeStore.wallpaperStat.newImgCnt}}</text>
+                    张，<text class="desc_txt_color">{{props.homeStore.wallpaperStat.totalDownloadCnt}}</text> 人下载
+                </view>
+                <view class="desc-txt" wx:if="{{props.homeStore.wallpaperStat.newImgCnt==0}}">
+                    <text class="desc_txt_color">{{props.homeStore.wallpaperStat.totalDownloadCnt}}</text> 人下载
+                </view>
+            </view>
+            <view bindtap="_onLeftTap" class="desc_img" wx:if="{{!props.homeStore.currentType.onlyAvatar}}">
+                <image class="icon" src="../../images/icon_large2.png"></image>
+                大图浏览
+            </view>
+        </view>
+        <view class="top-margin"></view>
+        <scroll-view bindscrolltolower="_loadMoreWallPaper" class="wallpaper-con" lowerThreshold="_loadMoreWallPaper" scrollY="true">
+            <view class="col" wx:for="{{props.homeStore.wallpaperDataColum.list}}" wx:key="{{index}}">
+                <view bindtap="tabImageItem" class="wallpaper-item-con" data-current-index="{{index}}">
+                    <image class="wallpaper-image {{props.homeStore.currentType.onlyAvatar?'act':''}}" mode="aspectFill" src="{{item.imgUrl+'?imageMogr2/thumbnail/250x'}}"></image>
+                </view>
+            </view>
+            <load-more loadStatus="{{loadStatus}}"></load-more>
+        </scroll-view>
+        <category bind:onItemTap="_onCayegoryChange" data="{{props.homeStore.wallpaperCategory}}" show="{{showCategory}}"></category>
+    </view>
+</ypage>

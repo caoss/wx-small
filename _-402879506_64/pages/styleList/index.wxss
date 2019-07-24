@@ -1,0 +1,212 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #000;
+    color: #fff;
+}
+
+swiper {
+    width: 690rpx;
+    height: 280rpx;
+    display: block;
+    margin-top: 40rpx;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20rpx;
+    overflow: hidden;
+    background: rgba(255,255,255,0.1);
+}
+
+swiper .swiper-item {
+    background: rgba(255,255,255,0.1);
+}
+
+swiper .wx-swiper-dots.wx-swiper-dots-horizontal {
+    margin-bottom: -5rpx;
+}
+
+swiper .wx-swiper-dot {
+    width: 24rpx;
+    display: inline-flex;
+    height: 6rpx;
+    margin: 0rpx;
+    justify-content: space-between;
+    border-radius: 0rpx;
+}
+
+swiper image,swiper navigator {
+    width: 100%;
+    height: 100%;
+    border-radius: 20rpx;
+}
+
+.swiper-item {
+    display: block;
+    height: 100%;
+}
+
+.style_list {
+    margin-top: 50rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.style_list .list {
+    height: 200rpx;
+    width: 690rpx;
+    margin: 0 auto 40rpx auto;
+    overflow: hidden;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20rpx;
+    position: relative;
+}
+
+.style_list .tip {
+    font-size: 28rpx;
+    position: relative;
+}
+
+.style_list .label,.style_list .btn_nav {
+    display: block;
+    width: 140rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    float: right;
+    background: rgba(0,0,0,0.4);
+    border-radius: 100rpx;
+    margin: 20rpx;
+}
+
+.style_list .label {
+    color: rgba(255,255,255,0.2);
+}
+
+.style_list .btn_nav {
+    background: #006aff;
+    margin-left: 0;
+    width: 128rpx;
+}
+
+.style_list text {
+    font-size: 52rpx;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10rpx;
+}
+
+.style_list image {
+    width: 90%;
+    height: 100rpx;
+    margin-top: 50rpx;
+}
+
+@-webkit-keyframes roll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes roll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes roll1 {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes roll1 {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+.list.roll text {
+    position: relative;
+    top: 55rpx;
+    display: block;
+    left: 0;
+    animation: roll 4s linear infinite;
+    white-space: nowrap;
+}
+
+.list.fluore text {
+    padding-top: 50rpx;
+    display: block;
+    color: #fff;
+    text-shadow: 0 0 10px #FF1177,0 0 20px #FF1177,0 0 30px #FF1177,0 0 40px #FF1177,0 0 70px #FF1177,0 0 80px #FF1177;
+}
+
+.tjcp {
+    background: rgba(255,255,255,0.1);
+    overflow: hidden;
+    width: 690rpx;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.7);
+    font-size: 30rpx;
+    border-radius: 20rpx;
+    padding-top: 30rpx;
+}
+
+.tjcp .tip {
+    overflow: hidden;
+}
+
+.tjcp .tip image {
+    width: 30rpx;
+    display: block;
+    float: left;
+    padding-top: 7.5rpx;
+}
+
+.tjcp .tip text {
+    display: block;
+    float: left;
+}
+
+.tjcp .list_box {
+    width: 120rpx;
+    overflow: hidden;
+    float: left;
+    margin: 40rpx 26rpx;
+    font-size: 24rpx;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    background: transparent;
+    padding: 0;
+    line-height: 30rpx;
+}
+
+.tjcp .list_box image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.tjcp .list_box text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

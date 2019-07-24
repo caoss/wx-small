@@ -1,0 +1,24 @@
+<import src="../../common/wxml/template.wxml"></import>
+<view class="body">
+    <view class="nav_top" style="height:{{top}}"></view>
+    <view class="navigationPannel">
+        <image bindtap="back" class="backBtn" src="../../img/back_white.png"></image>
+    </view>
+    <view class="prepare" wx:if="{{!showGifGenerateSucc}}">
+        <template is="loading" data="{{loadingData:loadingData}}"></template>
+    </view>
+    <view class="dlg" style="opacity:{{dlgOpacity}}">
+        <view class="dlgContent">
+            <view bindtap="closeDlg" class="closePannel">
+                <image class="closeBtn" src="../../img/close.png"></image>
+                <view class="closeLine"></view>
+            </view>
+            <image bindtap="showZhezhao" class="dlgBg" src="/img/dlgBg_yinyu.png"></image>
+        </view>
+    </view>
+    <view class="showSaveHint" wx:if="{{showGifGenerateSucc&&showSaveHint}}">
+        <template is="hint" data="{{hintData:hintData}}"></template>
+    </view>
+</view>
+<import src="/common/wxml/template.wxml"></import>
+<template is="yinyu_fuli_hint" data="{{yinyu_fuli_hint:yinyu_fuli_hint}}"></template>

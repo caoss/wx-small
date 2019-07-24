@@ -1,0 +1,90 @@
+<template name="yinyu_fuli_hint">
+    <button catchtap="hideZhezhao" class="zhezhao" hoverClass="none" openType="contact" sendMessageImg="../../img/dcx1.png" sendMessagePath="/pages/styleList/index?type=words_wxpublic" sendMessageTitle="英语福利" showMessageCard="true" wx:if="{{yinyu_fuli_hint.showZhezhao}}">
+        <image class="top" mode="widthFix" src="../../img/zhezhao_top.png"></image>
+        <image class="bottom" mode="widthFix" src="../../img/zhezhao_bottom.png"></image>
+        <view class="box">
+            <view class="h1">操作指引</view>
+            <view class="p">请点击右下角“可能要发送的小程序”</view>
+        </view>
+    </button>
+</template>
+<template name="navigation">
+    <view class="navigationPannel">
+        <image bindtap="back" class="backBtn" src="../../img/back_white.png"></image>
+    </view>
+</template>
+<template name="hint">
+    <view class="loadingPannel">
+        <view class="loadingText">{{hintData.text}}</view>
+    </view>
+</template>
+<template name="loading">
+    <view class="loadingPannel">
+        <image class="loadingImg" src="../../img/loading.png"></image>
+        <view class="loadingText">{{loadingData.text}}</view>
+    </view>
+</template>
+<template name="ad">
+    <view class="drli" wx:if="{{item.name=='about_applet'}}">
+        <ad unitId="adunit-3dcfb4553e1291ad"></ad>
+    </view>
+</template>
+<template name="redpack">
+    <view bindtap="getRedpack" class="drli drpubic" data-key="{{item.slogan}}">
+        <text class="f22 c3f">你将领到一个红包</text>
+        <image class="zfredpack" src="/img/redpack.png">关注公众号</image>
+    </view>
+</template>
+<template name="donation">
+    <view class="donation">
+        <image bindtap="goProduct" class="img" data-key="{{item}}" src="/img/donation.png"></image>
+    </view>
+</template>
+<template name="public">
+    <view class="drli drpubic">
+        <text class="f22 c3f">问题反馈，欢迎来撩</text>
+        <view bindtap="openJoin" class="abt mr-6">关注公众号</view>
+    </view>
+</template>
+<template name="game">
+    <view class="drgame">
+        <view class="left">
+            <image class="img" src="{{item.img}}"></image>
+            <view class="rtop">
+                <text class="f36 c2f">{{item.name}}</text>
+                <text class="f242 c6d mt16">{{item.slogan}}</text>
+            </view>
+        </view>
+        <view bindtap="saveImg" class="abt" data-key="{{item.gamecode}}">保存游戏码</view>
+    </view>
+</template>
+<template name="program1">
+    <navigator appId="{{item.appid}}" bindtap="AdCount" class="drli" data-appid="{{item.appid}}" data-key="{{item}}" extraData="" openType="navigate" path="" target="miniProgram" version="release">
+        <view class="left">
+            <image class="img" src="{{item.img}}"></image>
+            <view class="rtop">
+                <image class="slogan spac" src="{{item.sloganimg}}" wx:if="{{item.sloganimg&&item.sloganimg!=''}}"></image>
+                <text class="f36 c2f spac">{{item.name}}</text>
+                <text class="f24 c6d spac">{{item.slogan}}</text>
+            </view>
+        </view>
+        <view class="rig">
+            <image class="img" src="/img/arrow.png"></image>
+        </view>
+    </navigator>
+</template>
+<template name="program">
+    <view bindtap="goProduct" class="drli" data-key="{{item}}">
+        <view class="left">
+            <image class="img" src="{{item.img}}"></image>
+            <view class="rtop">
+                <image class="slogan spac" src="{{item.sloganimg}}" wx:if="{{item.sloganimg&&item.sloganimg!=''}}"></image>
+                <text class="f36 c2f spac">{{item.name}}</text>
+                <text class="f24 c6d spac">{{item.slogan}}</text>
+            </view>
+        </view>
+        <view class="rig">
+            <image class="img" src="/img/arrow.png"></image>
+        </view>
+    </view>
+</template>

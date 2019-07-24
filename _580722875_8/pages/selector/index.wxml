@@ -1,0 +1,30 @@
+<import src="../../utils/we-cropper.wxml"></import>
+<view class="Popup" wx:if="{{showLoginPopup}}">
+    <view class="content">
+        <view class="title">确认使用头像制作工具小程序</view>
+        <ad unitId="adunit-21f4756774c4b05e"></ad>
+        <button bindgetuserinfo="handleLogin" class="authButton primaryButton" lang="zh_CN" openType="getUserInfo" wx:if="{{canIUse}}">
+      确认
+    </button>
+        <view wx:else>请升级微信版本</view>
+    </view>
+</view>
+<view class="Cropper" wx:else>
+    <template is="we-cropper" data="{{...cropperOpt}}"></template>
+</view>
+<view bindtap="handleRefreshAvatar" class="smallText">无法获取头像？</view>
+<view class="Bottom" style="padding-bottom: {{isPhoneX?68:0}}rpx">
+    <view class="Container">
+        <view class="AdWrapper" style="padding: {{isPhoneX?20:0}}rpx 0"></view>
+        <view class="Tab">
+            <view bindtap="handleChooseImage" class="defaultButton">
+        选择照片
+        <image class="icon-change" src="/assets/icon-change.png"></image>
+            </view>
+            <view bindtap="handleConfirm" class="primaryButton">
+        导入图片
+        <image class="icon-arrow-r" src="/assets/icon-arrow-r.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

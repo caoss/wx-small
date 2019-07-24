@@ -1,0 +1,29 @@
+<view class="nav_top" style="height:{{top}}"></view>
+<view class="navigationPannel">
+    <view class="title"></view>
+</view>
+<view class="style_list">
+    <view bindtap="btnanniu" class="list list_{{idx}} {{item.name}} {{list_on==idx?'on':''}} " id="{{idx}}" wx:for="{{arry}}" wx:for-index="idx">
+        <text wx:if="{{item.text}}">{{item.text}}</text>
+        <image mode="aspectFill" src="{{item.img}}" wx:if="{{item.img}}"></image>
+    </view>
+</view>
+<view class="tjcp">
+    <view class="tip">
+        <image class="ml30 mr20" mode="widthFix" src="../../img/tip.png"></image>
+        <text>推荐产品</text>
+    </view>
+    <div bindtap="showZhezhao" class="list_box">
+        <image src="../../img/dcx.png"></image>
+        <text>英语福利</text>
+    </div>
+    <view class="list_box" wx:if="{{idx>0}}" wx:for="{{banner_array}}" wx:for-index="idx">
+        <image bindtap="banner_href" id="{{idx}}" mode="aspectFill" src="{{item.img_path}}" wx:if="{{naviToMiniProgramVisible}}"></image>
+        <navigator appId="{{item.appid}}" bindtap="AdCount" id="{{idx}}" openType="navigate" path="{{item.appurl}}" target="miniProgram" wx:if="{{!naviToMiniProgramVisible}}">
+            <image mode="aspectFill" src="{{item.img_path}}"></image>
+        </navigator>
+        <text>{{item.name}}</text>
+    </view>
+</view>
+<import src="/common/wxml/template.wxml"></import>
+<template is="yinyu_fuli_hint" data="{{yinyu_fuli_hint:yinyu_fuli_hint}}"></template>

@@ -1,0 +1,253 @@
+.container {
+    background: #000000;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container .scrollTxt {
+    transform: rotate(90deg);
+    display: block;
+    line-height: 0rpx;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.container .scrollTxt text {
+    color: #ffffff;
+    font-size: 72rpx;
+    width: 100%;
+    height: 750rpx;
+    text-align: center;
+    line-height: 750rpx;
+    display: inline-block;
+    animation: zimu1 7s linear 0s infinite normal running;
+    white-space: nowrap;
+}
+
+@-webkit-keyframes zimu1 {
+    0% {
+        transform: translateX(110%);
+    }
+
+    100% {
+        transform: translateX(-110%);
+    }
+}
+
+@keyframes zimu1 {
+    0% {
+        transform: translateX(110%);
+    }
+
+    100% {
+        transform: translateX(-110%);
+    }
+}
+
+.footBox {
+    width: 750rpx;
+    height: 70rpx;
+    position: fixed;
+    left: 0;
+    overflow: hidden;
+    bottom: -150rpx;
+    transition: all 0.25s linear;
+    opacity: 0.3;
+    z-index: 2;
+}
+
+.footBox.active {
+    bottom: 0;
+}
+
+.footBox.opacity {
+    opacity: 1;
+}
+
+.footBox .fl {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 10rpx;
+    background: rgba(255,255,255,0.3);
+    float: left;
+    border-radius: 50%;
+}
+
+.footBox .fl image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}
+
+.footBox .inputBox {
+    width: 600rpx;
+    height: 50rpx;
+    margin: 10rpx 0;
+    padding: 0 25rpx;
+    line-height: 48rpx;
+    border-radius: 25rpx 25rpx;
+    border: 1rpx solid #999999;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    float: left;
+    color: #ffffff;
+}
+
+.footBox .colorBox {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 10rpx;
+    background: rgba(255,255,255,0.3);
+    float: left;
+    border-radius: 50%;
+}
+
+.footBox .colorBox image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}
+
+.footMenu {
+    width: 750rpx;
+    height: 180rpx;
+    background: rgba(21,21,21,0.9);
+    position: fixed;
+    left: 0;
+    bottom: -280rpx;
+    transition: all 0.25s linear;
+    z-index: 2;
+}
+
+.footMenu.active {
+    bottom: 0;
+}
+
+.footMenu .tags {
+    width: 100%;
+    height: 80rpx;
+    border-bottom: 1rpx solid #333333;
+}
+
+.footMenu .tags .tag {
+    width: 100rpx;
+    height: 80rpx;
+    float: left;
+}
+
+.footMenu .tags .tag image {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 5rpx auto;
+    display: block;
+}
+
+.footMenu .tags .tag text {
+    display: block;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+    color: #ffffff;
+    font-size: 20rpx;
+}
+
+.footMenu .tags .tag.active {
+    background: #0da83d;
+}
+
+.footMenu .tags .tag.active image {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 5rpx auto;
+    display: block;
+    transform: scale(1.2);
+}
+
+.footMenu .tags .tag.active text {
+    color: #ffffff;
+}
+
+.footMenu .tags .btn {
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 20rpx;
+    background: #0da83d;
+    color: #ffffff;
+    text-align: center;
+    margin: 20rpx 20rpx;
+    float: right;
+    font-size: 24rpx;
+}
+
+.footMenu .selectBox {
+    width: 100%;
+    height: 50rpx;
+}
+
+.footMenu .selectBox .select_1 {
+    width: 690rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 0;
+    margin-top: 25rpx;
+}
+
+.footMenu .selectBox .select_1 .option {
+    width: 60rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    background: #333333;
+    color: #ffffff;
+    border-radius: 5rpx;
+    margin: 0 15rpx;
+    display: inline-block;
+    font-size: 22rpx;
+}
+
+.footMenu .selectBox .select_1 .option.active {
+    background: #0da83d;
+    color: #ffffff;
+}
+
+.footMenu .selectBox .scrollView {
+    width: 690rpx;
+    height: 70rpx;
+    margin: 0 auto;
+    margin-top: 15rpx;
+}
+
+.footMenu .selectBox .select_2 {
+    width: auto;
+    height: 70rpx;
+    text-align: center;
+    line-height: 0;
+    margin: 0 auto;
+    white-space: nowrap;
+    padding: 10rpx 0;
+    box-sizing: border-box;
+}
+
+.footMenu .selectBox .select_2 .option {
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    background: #333333;
+    color: #ffffff;
+    border-radius: 0rpx;
+    margin: 0rpx;
+    display: inline-block;
+    font-size: 22rpx;
+}
+
+.footMenu .selectBox .select_2 .option.active {
+    transform: scale(1.5);
+    background: #0da83d;
+}

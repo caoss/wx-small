@@ -1,0 +1,46 @@
+<template name="adsingle">
+    <template is="{{item.type}}" data="{{item:item}}"></template>
+</template>
+<template name="adinner">
+    <template is="{{item.type}}" data="{{item:item}}" wx:if="{{item.type=='innerBanner'}}" wx:for="{{rawdata}}" wx:key="item"></template>
+</template>
+<template name="adlist">
+    <template is="{{item.type}}" data="{{item:item}}" wx:if="{{item.type!='innerBanner'}}" wx:for="{{rawdata}}" wx:key="item"></template>
+</template>
+<template name="sideFloat">
+    <view style="{{item.style}}" wx:if="{{item.status&&item.show}}" wx:for="{{item.content}}" wx:for-item="item2">
+        <template is="{{item2.type}}" data="{{item2:item2}}"></template>
+    </view>
+</template>
+<template name="innerBanner">
+    <view style="width:{{item.width}};height:{{item.height}}; position:static;" wx:if="{{item.status&&item.show}}" wx:for="{{item.content}}" wx:for-item="item2">
+        <template is="{{item2.type}}" data="{{item2:item2}}"></template>
+    </view>
+</template>
+<template name="btmBanner">
+    <view style="width:{{item.width}};height:{{item.height}}; position:fixed;left:0;bottom:0;" wx:if="{{item.status&&item.show}}" wx:for="{{item.content}}" wx:for-item="item2">
+        <template is="{{item2.type}}" data="{{item2:item2}}"></template>
+    </view>
+</template>
+<template name="topBanner">
+    <view style="width:{{item.width}};height:{{item.height}}; position:fixed;left:0;top:0;" wx:if="{{item.status&&item.show}}" wx:for="{{item.content}}" wx:for-item="item2">
+        <template is="{{item2.type}}" data="{{item2:item2}}"></template>
+    </view>
+</template>
+<template name="ad">
+    <ad binderror="tradisError" bindload="tradisLoad" bindtap="tradisTap" data-creative_id="{{item2.creative_id}}" data-linkType="ad" data-union_id="{{item2.union_id}}" data-unitid="{{item2.unit_id}}" style="width:100%; height:100%;" unitId="{{item2.unit_id}}" wx:if="{{!item2.ad.show}}"></ad>
+    <image bindtap="tradisTap" data-appid="{{item2.ad.appid}}" data-creative_id="{{0}}" data-linkType="wxa" data-path="{{item2.ad.path}}" data-union_id="{{0}}" src="{{item2.ad.img}}" style="width:100%; height:100%;" wx:if="{{item2.ad.show}}"></image>
+    <image src="https://r.d1fm.com/r.gif?union_id={{item2.union_id}}&creative_id={{item2.creative_id}}&openid={{item2.openid}}&action=view&_t={{item2._t}}" style="width:0rpx;height:0rpx"></image>
+</template>
+<template name="article">
+    <image bindtap="tradisTap" data-creative_id="{{item2.creative_id}}" data-linkType="article" data-path="{{item2.path}}" data-union_id="{{item2.union_id}}" mode="{{item2.mode}}" src="{{item2.image}}" style="width:100%; height:100%;"></image>
+    <image src="https://r.d1fm.com/r.gif?union_id={{item2.union_id}}&creative_id={{item2.creative_id}}&openid={{item2.openid}}&action=view&_t={{item2._t}}" style="width:0rpx;height:0rpx"></image>
+</template>
+<template name="h5">
+    <image bindtap="tradisTap" data-creative_id="{{item2.creative_id}}" data-linkType="h5" data-path="{{item2.path}}" data-union_id="{{item2.union_id}}" mode="{{item2.mode}}" src="{{item2.image}}" style="width:100%; height:100%;"></image>
+    <image src="https://r.d1fm.com/r.gif?union_id={{item2.union_id}}&creative_id={{item2.creative_id}}&openid={{item2.openid}}&action=view&_t={{item2._t}}" style="width:0rpx;height:0rpx"></image>
+</template>
+<template name="wxa">
+    <image bindtap="tradisTap" data-appid="{{item2.appid}}" data-creative_id="{{item2.creative_id}}" data-linkType="wxa" data-path="{{item2.path}}" data-union_id="{{item2.union_id}}" mode="{{item2.mode}}" src="{{item2.image}}" style="width:100%; height:100%;"></image>
+    <image src="https://r.d1fm.com/r.gif?union_id={{item2.union_id}}&creative_id={{item2.creative_id}}&openid={{item2.openid}}&action=view&_t={{item2._t}}" style="width:0rpx;height:0rpx"></image>
+</template>

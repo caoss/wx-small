@@ -1,0 +1,42 @@
+<import src="../../commpents/navBar/navBar.wxml"></import>
+<template is="navbar" data="{{navBar:navBar}}"></template>
+<import src="../../tradis/tradis.wxml"></import>
+<view class="container" style="padding-top:{{navBar.statusBarHeight+100}}rpx;">
+    <view class="itemList">
+        <view bindtap="goDetail" class="item" data-name="canvas" data-typename="情书告白">
+            <image src="../../images/sp1.png"></image>
+        </view>
+        <view bindtap="goDetail" class="item" data-name="scroll" data-typename="行走字幕">
+            <view class="scrollTxt">
+                <text>弹幕文字 行走的字幕</text>
+            </view>
+        </view>
+        <view bindtap="goDetail" class="item" data-name="light" data-typename="霓虹灯">
+            <view class="light">
+                <text>弹幕文字 ❤霓虹灯❤</text>
+            </view>
+        </view>
+        <view bindtap="goDetail" class="item" data-name="scrolllight" data-typename="行走字幕">
+            <view class="scrollLight">
+                <text>弹幕文字 行走的霓虹灯</text>
+            </view>
+        </view>
+    </view>
+    <view class="gamelist" wx:if="{{gamelist.length>0}}">
+        <view class="scrollGame">
+            <scroll-view class="scrollView" scrollLeft="0" scrollX="true">
+                <view class="gameitems">
+                    <view bindtap="openGame" class="item" data-appid="{{item.appid}}" data-boxid="{{item.box_id}}" data-device="{{item.device}}" data-fdimg="{{item.qrcode_mix}}" data-id="{{item.id}}" data-name="{{item.name}}" data-path="{{item.path}}" wx:for="{{gamelist}}">
+                        <image src="{{item.icon}}"></image>
+                        <text class="name">{{item.name}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view id="adbox" wx:if="{{innerad.length>0}}">
+        <view class="adbox2">
+            <template is="adinner" data="{{rawdata:innerad}}"></template>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,84 @@
+<view bindtouchstart="setView" class="body" style="background-color:{{roll.bgcol}}">
+    <canvas canvasId="canvasForShow" class="canvasForShow" style="background:{{roll.bgcArray[roll.bgckey]}}"></canvas>
+</view>
+<view cattap="cattap" class="foot {{view.footShow?'opy1':'opy0'}} ">
+    <view cattap="cattap" class="roll">
+        <view bindtap="swFluore" class="ml20 {{focus?'hide':''}}" hoverClass="on">
+            <image class="img" src="../../img/icon_list.png"></image>
+        </view>
+        <input adjustPosition="true" bindblur="inputEnd" bindfocus="focus" bindinput="listenerVal" class="ml20 {{focus?'inputFocus':''}}" cursorSpacing="{{cursorSpace}}" placeholder="空格可以断句哟~" placeholderStyle="color:rgba(255,255,255,0.6)" value="{{temptxt}}"></input>
+        <form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
+            <button bindtap="setInfo" class=" ml20 btn_none {{focus?'hide':''}}" formType="submit">
+                <image class="img" src="../../img/set.png"></image>
+            </button>
+        </form>
+        <view bindtap="goDrainage" class="ml20 mr20 btn_none {{focus?'hide':''}}" hoverClass="on">
+            <image class="img " src="../../img/placards.png"></image>
+        </view>
+        <view bindtouchstart="hide_button">
+            <button class="mr20 ml20 shtxt done {{focus?'':'hide'}}" openType="share">发送</button>
+        </view>
+    </view>
+</view>
+<view cattap="cattap" class="ftset footer-choice {{view.isSet?'':'b440'}}  ">
+    <view class="footer-choice-list">
+        <view catchtap="menuTap" class="font-color {{menuTapCurrent=='2'?'on':''}}" data-current="2">
+            <image src="../../img/font_color.png"></image>
+            <text>颜色</text>
+        </view>
+        <view catchtap="menuTap" class="pattern {{menuTapCurrent=='3'?'on':''}}" data-current="3">
+            <image src="../../img/pattern.png"></image>
+            <text>模式</text>
+        </view>
+        <view catchtap="menuTap" class="bg_color {{menuTapCurrent=='4'?'on':''}}" data-current="4">
+            <image src="../../img/bg_color.png"></image>
+            <text>背景</text>
+        </view>
+    </view>
+    <view bindtap="doneSet" class="newdone">
+        <text>完成</text>
+    </view>
+    <view class="footer_list lizicol" hidden="{{menuTapCurrent!='2'}}">
+        <scroll-view class="scroll-view_H scroll-x lizi" scrollIntoView="{{toView_pcolor}}" scrollWithAnimation="true" scrollX="true">
+            <view catchtap="setpcol" class="zuhe {{roll.pckey==index?'on':''}}" data-key="{{index}}" id="{{particeOrder[index]}}" wx:for="{{particeOrder}}" wx:key="*this">
+                <view class="col1" style="background:{{roll.pcArray1[index]}}"></view>
+                <view class="col2" style="background:{{roll.pcArray2[index]}}"></view>
+                <view class="col1" style="background:{{roll.pcArray1[index]}}"></view>
+                <view class="col2" style="background:{{roll.pcArray2[index]}}"></view>
+                <view class="col1" style="background:{{roll.pcArray1[index]}}"></view>
+                <view class="col2" style="background:{{roll.pcArray2[index]}}"></view>
+                <view class="col1" style="background:{{roll.pcArray1[index]}}"></view>
+                <view class="col2" style="background:{{roll.pcArray2[index]}}"></view>
+                <view class="col1" style="background:{{roll.pcArray1[index]}}"></view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="footer_list" hidden="{{menuTapCurrent!='4'}}">
+        <view class="listStyle_2" style="width: 670rpx">
+            <view catchtap="setbgCol" class="{{roll.bgckey==index?'curt':''}} marginlr15" data-key="{{index}}" id="{{order[index]}}" style="background-color: {{item}};" wx:for="{{roll.bgcArray}}" wx:key="*this"></view>
+        </view>
+    </view>
+    <view class="footer_list" hidden="{{menuTapCurrent!='3'}}">
+        <view class="listStyle_1">
+            <view catchtap="setPattern" class="{{roll.playMode==0?'curt':''}}" data-key="0">正常
+        <image class="{{roll.playMode==0?'show':''}}" src="../../img/on.png"></image>
+            </view>
+            <view catchtap="setPattern" class="{{roll.playMode==2?'curt':''}}" data-key="2">循环
+        <image class="{{roll.playMode==2?'show':''}}" src="../../img/on.png"></image>
+            </view>
+            <view catchtap="setPattern" class="{{roll.playMode==1?'curt':''}}" data-key="1">散开
+        <image class="{{roll.playMode==1?'show':''}}" src="../../img/on.png"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<image bindtap="goList" class="tk_update" src="../../img/update.png" wx:if="{{!supportCanvas}}"></image>
+<view class="dlg" wx:if="{{showMakeFailDialog}}">
+    <view bindtap="closeMakeFailDlg" class="closePannel">
+        <image class="closeBtn" src="../../img/close.png"></image>
+        <view class="closeLine"></view>
+    </view>
+    <image src="../../img/particle_fail.png"></image>
+    <button bindtap="retry" class="retryBtn">重 试</button>
+    <button bindtap="goNormal" class="goNormalBtn">经 典 弹 幕</button>
+</view>

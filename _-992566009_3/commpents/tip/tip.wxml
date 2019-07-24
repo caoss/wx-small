@@ -1,0 +1,12 @@
+<template name="tipsItem">
+    <view class="tipsmask" wx:if="{{tipModel.show}}"></view>
+    <view class="Model" wx:if="{{tipModel.show}}">
+        <view class="tt">提示</view>
+        <view class="des">
+            <text>{{tipModel.des}}</text>
+        </view>
+        <view bindtap="closeTipModel" class="close">
+            <image src="../../images/close2.png"></image>
+        </view>
+    </view>
+</template>

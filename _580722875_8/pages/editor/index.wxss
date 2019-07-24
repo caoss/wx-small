@@ -1,0 +1,147 @@
+page {
+    background-color:red;
+}
+
+.canvas {
+    width: 675rpx;
+    height: 675rpx;
+}
+
+.actionContainer {
+    position: absolute;
+    height: 290rpx;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(216,216,216,.2);
+}
+
+.categoryList {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.list {
+    padding: 0 37.5rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.cateIconWrapper {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.contentWrapper {
+    position: relative;
+}
+
+.saveButton {
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    right: 40rpx;
+    top: -50rpx;
+    z-index: 10;
+    box-shadow: 0 0 2px 0px #000;
+    border-radius: 50%;
+    background-color: #3bcd72;
+}
+
+.hatList {
+    margin-right: 40rpx;
+}
+
+.saveButton>image {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.cateIcon {
+    width: 100rpx;
+    height: 100rpx;
+    display: block;
+}
+
+.item {
+    width: 120rpx;
+    height: 120rpx;
+    padding: 5rpx;
+    margin-right: 30rpx;
+    overflow: hidden;
+    flex: 1 0 auto;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    border: 5rpx solid transparent;
+}
+
+.item.active {
+    border: 5rpx solid #D01125;
+}
+
+.icon {
+    width: 105rpx;
+    height: 105rpx;
+    display: block;
+}
+
+.overrideAdContainer {
+    background-color: rgba(0,0,0,.6);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.overrideAd {
+    width: 500rpx;
+    height: 500rpx;
+    background-color: #fff;
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    margin-top: -400rpx;
+    margin-left: -250rpx;
+    border-radius: 50rpx;
+    overflow: hidden;
+}
+
+.overrideAdClose {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 170rpx;
+    margin-left: -50rpx;
+    width: 100rpx;
+    height: 100rpx;
+    z-index: 30;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: .9;
+}
+
+.overrideAdCloseImg {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.adTag {
+    position: absolute;
+    top: -60rpx;
+    width: 100rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #fff;
+    background-color: #333;
+    opacity: .5;
+}
+
+.overrideAdImg {
+    width: 500rpx;
+    height: 500rpx;
+}

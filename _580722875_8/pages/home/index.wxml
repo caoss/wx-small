@@ -1,0 +1,8 @@
+<view class="pageCon">
+    <view class='big_img_con'>
+         <image  class='big_img' src="../../imgs/home_big.png"></image>
+    </view>
+    <view class='icon_btn'>
+        <image class="img_btn" src="../../imgs/home_btn.png" mode="aspectFill" lazy-load="false" binderror="" bindload="" />
+    </view>
+</view>

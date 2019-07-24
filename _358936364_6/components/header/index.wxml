@@ -1,0 +1,25 @@
+<view class="nav-pos" style="padding-top:{{statusBarHeight}}px;background-color:{{backgroundColor}}" wx:if="{{type===1}}">
+    <view class="nav-wrapper" style="height:{{navgationHeight}}px" wx:if="{{titleIconR}}">
+        <view bindtap="_titleTap" class="nav-left-pos">
+            <image class="title-icon" src="../../images/back.png"></image>{{title}}
+        </view>
+        <view bindtap="" class="nav-title">分类</view>
+    </view>
+    <view class="nav-wrapper" style="height:{{navgationHeight}}px" wx:if="{{!titleIconR}}">
+        <view bindtap="_titleTap" class="nav-left-pos">
+            分类
+            <image class="title-icon title-icon_2 " src="../../images/dropdown.png" wx:if="{{titleIcon}}"></image>
+        </view>
+        <view bindtap="" class="nav-title">{{title}}</view>
+    </view>
+</view>
+<view class="nav-pos" style="padding-top:{{statusBarHeight}}px;background-color:{{backgroundColor}}" wx:else>
+    <view class="nav-wrapper" style="height:{{navgationHeight}}px">
+        <view bindtap="_goBack" class="nav-left-pos" wx:if="{{showBack}}">
+            <image class="back-icon" src="../../images/back_white@2x.png"></image>
+        </view>
+        <view bindtap="_titleTap" class="nav-title">{{title}}
+            <image class="title-icon" src="{{titleIcon}}" wx:if="{{titleIcon}}"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view bindtap="dzClickad" class="dz-wrap {{cssloading}}">
+    <text class="dztext" wx:if="{{queryData.logo}}">点众广告</text>
+    <text class="dzflag" wx:if="{{queryData.adsign}}">广告</text>
+    <image bindload="imgLoad" class="dzimg" mode="widthFix" src="{{imgUrl}}"></image>
+</view>

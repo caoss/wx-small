@@ -1,0 +1,30 @@
+page {
+    background-color: #9C2224;
+}
+.pageCon{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+.big_img_con{
+    width: 100%;
+    height: 980rpx;
+    margin-top: 36rpx;
+}
+.big_img{
+    width: 100%;
+    height: 100%;
+}
+.icon_btn{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction:row;
+    text-align: center;
+    justify-content:center;
+}
+.img_btn{
+    width: 452rpx;
+    height: 110rpx;
+}

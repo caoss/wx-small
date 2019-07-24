@@ -1,0 +1,6 @@
+<view class="c-item-con">
+    <view class="c-cover-con">
+        <image class="left-image" mode="aspectFill" src="{{data.imageUrl?data.imageUrl+'?imageMogr2/thumbnail/200x':''}}"></image>
+    </view>
+    <view class="c-name">{{data.cateName}}</view>
+</view>

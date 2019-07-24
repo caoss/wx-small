@@ -1,0 +1,14 @@
+<view bindtap="closeJoin" class="bombBox  {{join?' ':'hideNone'}}">
+    <view catchtap="pjoin" class="pro-join">
+        <view class="tecent">
+            <image class="headImg mt30" src="/img/mfpp.png"></image>
+        </view>
+        <text selectable class=" f28 mt30 ">风雨晓程</text>
+        <text class="col-green f36 mt60">微信公众号复制成功!</text>
+        <view class="line1 mt30"></view>
+        <text class="col-gray f28 mt30">快到微信中粘贴搜索吧</text>
+        <view class="tecent">
+            <image class="img mt30" src="/img/join.png"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+<view style="padding: 26rpx 0; text-align: center" wx:if="{{loadStatus==='loading'}}">
+    <image src="../../images/refreshing.gif" style="width: 32rpx; height: 32rpx; vertical-align: middle"></image>
+    <text style="vertical-align: middle; margin-left: 16rpx">正在加载...</text>
+</view>
+<view style="padding: 26rpx 0; text-align: center" wx:elif="{{loadStatus==='noMore'}}">
+    <text>没有更多数据哦~~</text>
+</view>
+<view style="padding: 26rpx 0; text-align: center" wx:elif="{{loadStatus==='fail'}}">
+    <text>网络异常,请稍后重试哦~~</text>
+</view>
+<view wx:else></view>

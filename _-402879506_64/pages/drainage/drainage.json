@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "相关小程序",
+    "backgroundColor": "#ececec",
+    "navigationStyle": "default",
+    "usingComponents": {
+        "dzad": "../components/dzad/index"
+    }
+}

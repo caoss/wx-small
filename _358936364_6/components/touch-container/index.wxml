@@ -1,0 +1,3 @@
+<view bindtap="tap" bindtouchcancel="cancel" bindtouchend="end" bindtouchmove="move" bindtouchstart="start" class="touch-con">
+    <slot></slot>
+</view>

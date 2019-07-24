@@ -1,0 +1,21 @@
+<view class="wall-con">
+    <header></header>
+    <view class="wall-con-1">
+        <image class="up_bg" src="../../images/up_bg.png"></image>
+        <view class="wall-con-2">
+            <image bindtap="showPop" class="up_bg_2" mode="aspectFill" src="../../images/up_btn.png"></image>
+        </view>
+    </view>
+</view>
+<view class="fix {{nullHouse?'show':''}}">
+    <view class="myToast">
+        <view class="myToast1">
+            <image class="myImage" src="../../images/down.jpg"></image>
+        </view>
+        <view class="textF">请用浏览器访问</view>
+        <view class="textS">小程序暂不支持跳转网页,</view>
+        <view class="textT">请复制链接,前往浏览器访问</view>
+        <view bindtap="copylink" class="copy">复制链接</view>
+    </view>
+    <view bindtap="outbank" class="bank"></view>
+</view>

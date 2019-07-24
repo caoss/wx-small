@@ -1,0 +1,12 @@
+{
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "white",
+    "disableScroll": true,
+    "usingComponents": {
+        "touch-container": "/components/touch-container/index",
+        "share-canvas": "/components/poster-canvas/index",
+        "header": "/components/header/index",
+        "ypage": "/components/page/index"
+    }
+}

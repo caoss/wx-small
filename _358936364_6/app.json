@@ -1,0 +1,25 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/detail/index",
+        "pages/category/index",
+        "pages/home-column/index",
+        "pages/h5-page/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+    },
+    "usingComponents": {
+        "header": "/components/header/index",
+        "ypage": "/components/page/index"
+    },
+    "networkTimeout": {
+        "request": 1000000
+    },
+    "debug": false
+}

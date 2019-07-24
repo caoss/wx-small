@@ -1,0 +1,11 @@
+<template name="navbar">
+    <view class="navbar" style="height:{{navBar.statusBarHeight+100}}rpx;padding-top:{{navBar.statusBarHeight}}rpx;">
+        <view bindtap="goBack" class="icon" style="top:{{navBar.statusBarHeight}}rpx;" wx:if="{{navBar.type==2}}">
+            <image src="../../images/icon_back.png"></image>
+        </view>
+        <view bindtap="goHome" class="icon" style="top:{{navBar.statusBarHeight}}rpx;" wx:if="{{navBar.type==1}}">
+            <image src="../../images/home.png"></image>
+        </view>
+        <view class="title">{{navBar.title}}</view>
+    </view>
+</template>

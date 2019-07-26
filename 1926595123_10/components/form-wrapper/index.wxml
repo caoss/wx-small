@@ -1,0 +1,6 @@
+<view class="form-wrapper">
+    <form reportSubmit bindsubmit="onSubmit">
+        <slot></slot>
+        <button class="cover-button" formType="submit" hoverClass="none"></button>
+    </form>
+</view>

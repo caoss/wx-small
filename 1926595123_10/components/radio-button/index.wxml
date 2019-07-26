@@ -1,0 +1,14 @@
+<view class="radio__item_container">
+    <view class="layout-row">
+        <view class="radio__label">
+            {{label}}
+        </view>
+        <view class="options__item">
+            <view class="layout-row">
+                <view bindtap="clickHandler" class="radio__item {{value==index?'active':''}}" data-index="{{index}}" data-option="{{item}}" wx:for="{{options}}" wx:key="id">
+                    <view class="inline-block">{{item}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,59 @@
+<nav-bar>导游审核</nav-bar>
+<view class="group__member_container">
+    <tabs bindchange="tabChangeHandler" value="{{currentIndex}}">
+        <tab-pane label="{{item.name}}" name="{{item.id}}" wx:for="{{tabs}}" wx:key="{{id}}">
+            <view class="tab-content">
+                <block wx:if="{{list.length}}">
+                    <view bindtap="checkDetailHandler" class="member-item layout-row" data-id="{{item.id}}" wx:for="{{list}}" wx:key="{{item.id}}">
+                        <view class="avatar text-left">
+                            <avatar user="{{item.user}}"></avatar>
+                        </view>
+                        <view class="date-item text-right">
+                            <view class="date">{{item.created_at}}</view>
+                            <view class="status__flag {{item.active?'selected':'unselected'}}" wx:if="{{currentType==0}}"></view>
+                            <view capture-catch:tap="chooseHandler" class="noop-click" data-id="{{item.id}}" data-index="{{index}}"></view>
+                        </view>
+                    </view>
+                </block>
+                <view class="status__placeholder text-center" wx:else>
+                    <view class="status__container" wx:if="{{currentType==1}}">
+                        <image src="https://static-image.tripurx.com/sunrise/icon/auth_success.svg"></image>
+                        <view class="text">暂时还没有用户通过申请</view>
+                    </view>
+                    <view class="status__container" wx:if="{{currentType==0}}">
+                        <image src="https://static-image.tripurx.com/sunrise/icon/auth_pending.svg"></image>
+                        <view class="text">暂时还没有用户提交申请</view>
+                    </view>
+                    <view class="status__container" wx:if="{{currentType==-1}}">
+                        <image src="https://static-image.tripurx.com/sunrise/icon/auth_fail.svg"></image>
+                        <view class="text">暂时还没有用户未通过申请</view>
+                    </view>
+                </view>
+            </view>
+        </tab-pane>
+    </tabs>
+    <fixed-bottom-bar wx:if="{{currentType==0&&list.length>0}}">
+        <view class="action-container layout-row">
+            <view class="text-left">
+                <view class="refuse-btn">
+                    <s-button bgcolor="#F93949" bindclick="rejectApplyHandler" data-verified="0">驳回申请</s-button>
+                </view>
+                <view class="allow-btn">
+                    <s-button bindclick="applyVerifiedHandler" data-verified="1">通过申请</s-button>
+                </view>
+            </view>
+            <view bindtap="chooseToggleHandler" class="choose-btn text-right">
+                <view class="tips" wx:if="{{!chooseAll}}">全选</view>
+                <view class="tips" wx:else>取消全选</view>
+                <view class="status__flag {{chooseAll?'selected':'unselected'}}"></view>
+            </view>
+        </view>
+    </fixed-bottom-bar>
+    <modal-panel bindclick="rejectHandler" isShow="{{isShow}}">
+        <view class="join__group_info">
+            <view class="info__item">
+                <textarea bindinput="bindValueHandler" data-key="reject_msg" placeholder="驳回原因" showConfirmBar="false"></textarea>
+            </view>
+        </view>
+    </modal-panel>
+</view>

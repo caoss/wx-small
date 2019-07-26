@@ -1,0 +1,12 @@
+<view class="input-item-container" style="{{styles}}">
+    <view class="input__item">
+        <view class="label">
+            {{label}}
+        </view>
+        <slot name="before"></slot>
+        <view class="input active">
+            <input bindblur="bindBlurHandler" bindfocus="bindFocusHandler" bindinput="bindInputHandler" disabled="{{disabled}}" focus="{{focus}}" maxlength="{{maxlength}}" password="{{password}}" placeholder="{{placeholder}}" style="{{styles}}" type="{{type}}" value="{{value}}"></input>
+        </view>
+        <slot name="after"></slot>
+    </view>
+</view>

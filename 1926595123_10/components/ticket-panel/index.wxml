@@ -1,0 +1,38 @@
+<view class="ticket-panel-container">
+    <view class="panel-inner">
+        <view class="panel-body">
+            <view class="info-item">
+                <view class="label">
+                    {{flight.type?'去程航班':'返程航班'}}
+                </view>
+                <view class="input">
+                    <input bindblur="flightChange" disabled="{{disabled}}" placeholder="请输入航班号" type="text" value="{{flight.flight_no}}"></input>
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="label">
+                    {{flight.type?'去程日期':'返程日期'}}
+                </view>
+                <view class="input">
+                    <picker bindchange="flightDateChange" disabled="{{disabled}}" end="2099-09-01" mode="date" start="2015-09-01" value="{{flight.flight_date}}">
+                        <view class="placeholder">{{flight.flight_date?flight.flight_date:'请选择航班日期'}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <view class="line text-center">
+            <view class="center"></view>
+        </view>
+        <view class="panel-footer flight-info">
+            <view class="departure__flight">
+                {{flight.departure_terminal_name||'请完善航班信息'}}
+            </view>
+            <view class="arrow">
+                <image mode="scaleToFill" src="../../assets/images/icon_plane.png"></image>
+            </view>
+            <view class="arrival__flight">
+                {{flight.arrival_terminal_name||'请完善航班信息'}}
+            </view>
+        </view>
+    </view>
+</view>

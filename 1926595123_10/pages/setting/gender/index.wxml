@@ -1,0 +1,9 @@
+<nav-bar>性别修改</nav-bar>
+<view class="container">
+    <view class="setting__item_container">
+        <radio-button bindchange="genderChangeHandler" options="{{options}}" value="{{store.user.gender-1}}"></radio-button>
+    </view>
+    <view class="setting__item_submit">
+        <s-button bindclick="updateUserInfo" loading="{{loading}}">保存</s-button>
+    </view>
+</view>

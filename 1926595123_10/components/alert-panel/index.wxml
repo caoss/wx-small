@@ -1,0 +1,9 @@
+<view class="modal__panel_container" wx:if="{{isShow}}">
+    <view bindtap="hideHandler" class="modal__mask"></view>
+    <view class="modal__panel_inner">
+        <slot></slot>
+    </view>
+    <view bindtap="hideHandler" class="delete__btn">
+        <image mode="widthFix" src="../../assets/images/icon_alert_delete.png"></image>
+    </view>
+</view>

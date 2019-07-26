@@ -1,0 +1,73 @@
+<nav-bar>团队详情</nav-bar>
+<view class="page__container">
+    <view class="notice__wrap">
+        <notice-panel>
+            <view class="layout-row">
+                <view bindtap="toggleModal" class="notice__text">
+                    {{group.notice?group.notice:'尚无公告'}}
+                </view>
+                <view bindtap="toggleForm" class="add__notice text-right">设置</view>
+            </view>
+        </notice-panel>
+        <modal-panel isShow="{{noticeModalShow}}" showCancel="{{false}}" title="团队公告">
+            {{group.notice?group.notice:'尚无公告'}}
+        </modal-panel>
+    </view>
+    <view class="panel__container">
+        <view class="group__info_header">
+            <view class="switch-wrap layout-row">
+                <navigator class="action__qrcode text-left" hoverClass="none" url="/pages/group/qrcode/index?id={{group.id}}">
+                    <image mode="widthFix" src="../../../assets/images/icon_group_qrcode.png"></image>
+                </navigator>
+                <view bindtap="getScanner" class="action__scan text-right">
+                    <image mode="widthFix" src="../../../assets/images/icon_group_scan.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="group__info_container">
+            <view class="avatar" style="background-image: url({{group.user.avatar}})" wx:if="{{group.user.avatar}}"></view>
+            <view class="nickname">{{group.name}}</view>
+            <view class="text-center">
+                <view class="description">
+                    {{group.auto_verify?'无需审核':'手动审核'}}
+                    {{group.password?'密码'+group.password:'无需密码'}}
+                </view>
+                <view class="members">团员数量 {{group.members_cnt}} / {{group.max_members}}</view>
+            </view>
+            <view class="group__statistics layout-row" wx:if="{{group.member_stats}}">
+                <view bindtap="checkGroupStatus" class="flex__item_1 s-item" data-verified="1">
+                    <view class="num">{{group.member_stats.verified}}</view>
+                    <view class="title">已通过</view>
+                </view>
+                <view bindtap="checkGroupStatus" class="flex__item_1 s-item" data-verified="0">
+                    <view class="num">{{group.member_stats.pending}}</view>
+                    <view class="title">待审核</view>
+                </view>
+                <view bindtap="checkGroupStatus" class="flex__item_1 s-item" data-verified="-1">
+                    <view class="num">{{group.member_stats.rejected}}</view>
+                    <view class="title">未通过</view>
+                </view>
+            </view>
+            <button class="native__button" hoverClass="none" openType="share" style="margin-top: 20rpx;">
+                <view class="add__wrap">
+                    <image mode="widthFix" src="../../../assets/images/icon_add_normal.png"></image>
+                    <view class="tips">邀请用户入团</view>
+                </view>
+            </button>
+        </view>
+    </view>
+    <block wx:if="{{flightList&&flightList.length}}">
+        <view class="ticket__item panel__container" wx:for="{{flightList}}" wx:key="{{item.id}}">
+            <ticket-panel disabled="{{true}}" flight="{{item}}"></ticket-panel>
+        </view>
+    </block>
+</view>
+<view class="fixed-modal" wx:if="{{noticeFormShow}}">
+    <view bindtap="toggleForm" class="mask"></view>
+    <view class="form">
+        <form reportSubmit bindsubmit="setGroupNotice">
+            <textarea fixed name="content" placeholder="在这里编辑团队公告" value="{{group.notice}}"></textarea>
+            <button class="native__button" formType="submit">保存</button>
+        </form>
+    </view>
+</view>

@@ -1,0 +1,65 @@
+<nav-bar>积分转赠</nav-bar>
+<view class="container">
+    <view class="point__header">
+        <view class="header__inner">
+            <view class="title">可赠积分</view>
+            <view class="nums">{{store.points.free_to_give}}</view>
+        </view>
+        <navigator class="points__detail_entry" hoverClass="none" url="/pages/points/present/list/index?type=give">
+            积分转赠记录
+        </navigator>
+        <view class="point__remain">
+            <view class="layout-row">
+                <view class="point__remain_nums">
+                    <view class="inline-block">总积分：{{store.points.total}}</view>
+                </view>
+                <view class="point__tips">
+                    <view class="inline-block">获赠积分和门店购物积分不能转送他人</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="point__content">
+        <view class="present__wrap">
+            <view class="present__point" wx:if="{{currentType==0}}">
+                <phone-input-item bindblurEvent="handlerBlur" bindfocusEvent="handlerFocus" bindinputEvent="bindValueHandler" data-key="mobile" focus="{{true}}" value="{{mobile}}"></phone-input-item>
+            </view>
+            <view class="present__point">
+                <point-input-item bindblurEvent="handlerBlur" bindfocusEvent="handlerFocus" bindinputEvent="presentPointHandler" disabled="{{store.points.free<=0}}" focus="{{true}}" label="数量" type="number" value="{{currentPoints}}">
+                    <view bindtap="pointFlushHandler" class="present__point_flush {{store.points.free<=0?'disabled':''}}" slot="action">全部赠送</view>
+                    <view slot="error" wx:if="{{errMsg}}">{{errMsg}}</view>
+                </point-input-item>
+            </view>
+        </view>
+    </view>
+    <fixed-bottom-bar bottom="{{keyboardHeight}}">
+        <view class="btn__fixed_wrap">
+            <s-button bindtap="modalShowHandler" disabled="{{submitLock}}">
+                确认赠送
+            </s-button>
+        </view>
+    </fixed-bottom-bar>
+    <modal-panel bindclick="modalClickHandler" isShow="{{isShow}}" title="确认赠送积分">
+        <view class="present__point_confirm">
+            此操作会预扣<view class="highlight">{{currentPoints}}</view>积分，48小时后若红包未领取，将会全部退还
+        </view>
+    </modal-panel>
+    <view class="choose__friend_container" wx:if="{{chooseShow&&currentType==1}}">
+        <view class="modal__panel_inner">
+            <view class="point__package_item text-center">
+                <view class="nums">
+                    <view class="inline-block">{{presentItem.points}}</view>
+                </view>
+                <view class="tips">
+                    <view class="inline-block">赠送积分数量</view>
+                </view>
+                <view class="present__tips">
+                    此操作会预扣<view class="highlight">{{currentPoints}}</view>积分，48小时后若红包未领取，将会全部退还
+                </view>
+                <view class="choose__friend_btn">
+                    <button class="native__button" openType="share">选择微信好友</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+<view class="share-container">
+    <view class="share-image">
+        <image class="" mode="widthFix" src="{{imageUrl}}"></image>
+    </view>
+    <button bindtap="download" class="download" hoverClass="none" type="primary">
+        保存图片
+    </button>
+</view>

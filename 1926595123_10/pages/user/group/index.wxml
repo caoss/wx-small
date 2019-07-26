@@ -1,0 +1,132 @@
+<nav-bar>{{group.name}}</nav-bar>
+<view class="page__container">
+    <view class="notice__wrap">
+        <notice-panel>
+            <view class="layout-row">
+                <view bindtap="toggleModal" class="notice__text inline-block">
+                    <view class="inline-block">{{group.notice?group.notice:'尚无公告'}}</view>
+                </view>
+            </view>
+        </notice-panel>
+        <modal-panel isShow="{{noticeModalShow}}" showCancel="{{false}}" title="团队公告">
+            {{group.notice?group.notice:'尚无公告'}}
+        </modal-panel>
+    </view>
+    <view class="flight__list_container">
+        <view class="flight__header">
+            <view>{{group.name}}</view>
+        </view>
+        <view class="flight__item">
+            <view class="flight__item_container">
+                <view class="flight__no">{{group.flight_away.flight_no}}</view>
+                <view class="flight_meta">
+                    <view class="layout-row">
+                        <view class="flight__city">
+                            <view class="inline-block">
+                                {{group.flight_away.departure_country_name}}{{group.flight_away.departure_city_name}}
+                                {{group.flight_away.departure_terminal_name}}
+                            </view>
+                        </view>
+                        <view class="flight__date text-right">
+                            <view class="inline-block">{{group.flight_away.flight_date}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="flight__type">去程信息</view>
+            </view>
+            <view class="flight__item_container">
+                <view class="flight__no">{{group.flight_home.flight_no}}</view>
+                <view class="flight_meta">
+                    <view class="layout-row">
+                        <view class="flight__city">
+                            <view class="inline-block">
+                                {{group.flight_home.departure_country_name}}{{group.flight_home.departure_city_name}}
+                                {{group.flight_home.departure_terminal_name}}
+                            </view>
+                        </view>
+                        <view class="flight__date text-right">
+                            <view class="inline-block">{{group.flight_home.flight_date}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="flight__type">回程信息</view>
+            </view>
+        </view>
+    </view>
+    <view class="group__member">
+        <view class="layout-row">
+            <view class="members__container">
+                <view class="cnt">{{memberList.length}}</view>
+                <view class="max">团队人数：限{{group.max_members}}人</view>
+            </view>
+            <view class="members__list" wx:if="{{memberList.length}}">
+                <form-wrapper hoverClass="none" url="/pages/user/member/index?group_id={{group.id}}">
+                    <view class="text-right">
+                        <view class="check">查看团员</view>
+                        <view class="avatar__list">
+                            <view class="member__avatar_wrap" style="background-image: url({{item.user.avatar}})" wx:for="{{memberList}}" wx:key="id"></view>
+                        </view>
+                    </view>
+                </form-wrapper>
+            </view>
+        </view>
+        <s-button bgcolor="#FAFBFC" class="tips__success" color="#C7AA81" wx:if="{{group.application.is_verified===1}}">
+            <view class="add__wrap">
+                <view class="tips success">恭喜您成功加入该旅行团，祝您旅途愉快~</view>
+            </view>
+        </s-button>
+    </view>
+    <view class="group__leader">
+        <view class="layout-row">
+            <view class="leader__info">
+                <view class="avatar">
+                    <view class="cover" style="background-image: url({{group.user.avatar}})"></view>
+                    <view class="nickname" wx:if="{{group.user.name}}">领队：{{group.user.name}}</view>
+                </view>
+            </view>
+            <view bindtap="phoneCall" class="leader__phone text-right" data-phone="{{group.user.mobile}}">
+                <view class="inline-block">{{group.user.mobile}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<fixed-bottom-bar>
+    <view class="btn__fixed_wrap">
+        <view wx:if="{{group.application.is_verified===0}}">
+            <view wx:if="{{group.application.is_invited}}">
+                <view class="invited__tips">
+                    <view class="invited__title">入团邀请：</view>
+                    <view class="invited__group">{{group.user.name}}邀请您加入‘{{group.name}}’</view>
+                </view>
+                <view class="layout-row">
+                    <view class="text-left flex__item_1 refused__group">
+                        <s-button bgcolor="#ebeced" bindclick="groupRefusedHandler" color="#bfbfbf">
+                            拒绝邀请
+                        </s-button>
+                    </view>
+                    <view class="text-right flex__item_1 accept__group">
+                        <s-button bgcolor="#98BC5D" bindclick="groupAcceptHandler">接受邀请</s-button>
+                    </view>
+                </view>
+            </view>
+            <s-button disabled="{{true}}" wx:else>您的入团申请正在审核中，请耐心等待</s-button>
+        </view>
+        <s-button disabled="{{true}}" wx:elif="{{group.application.is_verified===-1}}">
+            您的入团申请未通过
+        </s-button>
+        <navigator hoverClass="none" url="/pages/member/card/index" wx:elif="{{group.application.is_verified===1}}">
+            <s-button>我的优惠码</s-button>
+        </navigator>
+        <s-button bindclick="joinGroupHandler" wx:else>立即申请加入旅行团</s-button>
+    </view>
+</fixed-bottom-bar>
+<modal-panel bindclick="invitedUserHandler" isShow="{{isShow}}">
+    <view class="join__group_info">
+        <view class="info__item" wx:if="{{group.password_required}}">
+            <input-item bindblurEvent="bindValueHandler" data-key="password" label="密码" placeholder="请输入团密码" type="password"></input-item>
+        </view>
+        <view class="info__item">
+            <textarea bindblur="bindValueHandler" data-key="application_msg" placeholder="备注" showConfirmBar="false"></textarea>
+        </view>
+    </view>
+</modal-panel>

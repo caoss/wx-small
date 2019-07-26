@@ -1,0 +1,17 @@
+<nav-bar>旅行团码</nav-bar>
+<view class="container">
+    <view class="qrcode__container text-center">
+        <view class="title text-center">
+            <view class="inline-block">{{group.name}} ({{group.max_members}}人)</view>
+        </view>
+        <view class="subtitle text-center">
+            {{group.start_at}} ~ {{group.end_at}}
+        </view>
+        <view class="qrcode text-center">
+            <image mode="widthFix" src="{{group.qrcode}}"></image>
+        </view>
+        <view class="tips">
+            <view class="inline-block">扫描二维码加入旅行团 享受更多日上购物优惠</view>
+        </view>
+    </view>
+</view>

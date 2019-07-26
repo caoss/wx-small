@@ -1,0 +1,19 @@
+<nav-bar>我的旅行团</nav-bar>
+<view class="group__list_container" wx:if="{{list.length>0}}">
+    <tour-group-list list="{{list}}"></tour-group-list>
+    <view class="loading__more" wx:if="{{loadingLock&&hasMore}}">
+        <view class="inline-block">数据加载中……</view>
+    </view>
+    <view class="loading__more" wx:if="{{!loadingLock&&!hasMore}}">
+        <view class="inline-block">~~~没有更多啦~~~</view>
+    </view>
+</view>
+<view class="tips-container" wx:else>
+    <image src="../../assets/images/icon_group_null.png"></image>
+    <view class="tips">请联系您的导游邀请您入团</view>
+</view>
+<fixed-bottom-bar>
+    <view bindtap="getScanner" class="submit-normal-btn btn__fixed_wrap" hoverClass="none">
+        <s-button>扫一扫加入旅行团</s-button>
+    </view>
+</fixed-bottom-bar>

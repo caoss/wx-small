@@ -1,0 +1,15 @@
+<view class="nav-bar" style="height:{{navH}};">
+    <view class="nav-title">
+        <slot></slot>
+        <view class="nav-back" style="{{showBack||showHome?'':'display:none'}}">
+            <view bindtap="goBack" class="btn-back" hoverClass="none" style="{{showBack?'':'display:none'}}">
+                <image class="btn-icon" src="https://static-image.tripurx.com/sunrise/icon/nav-left.png"></image>
+            </view>
+            <view class="btn-spacer" style="{{showHome&&showBack?'':'display:none'}}"></view>
+            <view bindtap="goHome" class="btn-home" hoverClass="none" style="{{showHome?'':'display:none'}}">
+                <image class="btn-icon" src="https://static-image.tripurx.com/sunrise/icon/nav-home.png"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view style="background:transparent;height:{{navH}};"></view>

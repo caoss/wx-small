@@ -1,0 +1,20 @@
+<nav-bar>修改密码</nav-bar>
+<view class="container">
+    <form reportSubmit class="form">
+        <view class="input__item">
+            <input-item bindinputEvent="bindValueHandler" data-key="password" label="新密码" placeholder="请输入新密码" type="password" value="{{password}}"></input-item>
+        </view>
+        <view class="input__item">
+            <input-item bindinputEvent="bindValueHandler" data-key="submitPassword" label="确认密码" placeholder="确认新密码" type="password" value="{{submitPassword}}"></input-item>
+        </view>
+        <view class="input__item">
+            <phone-input-item bindinputEvent="bindValueHandler" data-key="mobile" placeholder="请输入手机号" value="{{mobile}}"></phone-input-item>
+        </view>
+        <view class="input__item">
+            <get-valid-code bindinputEvent="bindValueHandler" data-key="code" placeholder="请输入验证码" type="change_pwd" value="{{mobile}}"></get-valid-code>
+        </view>
+        <view class="submit">
+            <s-button bindclick="submitHandler" disabled="{{loading}}" loading="{{loading}}">确定</s-button>
+        </view>
+    </form>
+</view>

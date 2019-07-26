@@ -1,0 +1,14 @@
+<nav-bar>团队成员</nav-bar>
+<view class="group__member_container">
+    <block wx:if="{{list.length}}">
+        <view class="member-item layout-row" wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class="avatar text-left">
+                <avatar user="{{item.user}}"></avatar>
+            </view>
+            <view class="date-item text-right">
+                <view class="date">{{item.created_at}}</view>
+                <view class="status__flag {{item.active?'selected':'unselected'}}" wx:if="{{currentType===1||currentType===0}}"></view>
+            </view>
+        </view>
+    </block>
+</view>

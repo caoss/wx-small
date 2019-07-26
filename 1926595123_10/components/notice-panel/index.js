@@ -1,0 +1,3 @@
+getApp();
+
+Component({});

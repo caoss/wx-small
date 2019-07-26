@@ -1,0 +1,50 @@
+<view class="group__list_container">
+    <view bindtap="clickHandler" class="group__item" data-group="{{item}}" hoverClass="none" wx:for="{{list}}" wx:key="{{item.id}}">
+        <view class="item__header">
+            <view>
+                <image class="sence" mode="scaleToFill" src="/assets/images/icon_sence.png"></image>
+            </view>
+            <view class="title">{{item.name}}</view>
+            <block wx:if="{{item.application}}">
+                <view class="status success" wx:if="{{item.application.is_verified===1}}">
+                已加入
+            </view>
+                <block wx:if="{{item.application.is_verified===0}}">
+                    <view class="status pending" wx:if="{{item.application.is_invited===0}}">
+                待审核
+            </view>
+                    <view class="status pending" wx:else>待接受</view>
+                </block>
+                <view class="status fail" wx:if="{{item.application.is_verified===-1}}">
+                未通过
+            </view>
+            </block>
+        </view>
+        <view class="item__body">
+            <view class="body__header">
+                <view class="arrival">{{item.flight_away.arrival_city_name}}</view>
+                <view class="tips">目的地</view>
+            </view>
+            <view class="info__item_container">
+                <view class="info__item">
+                    <view class="flight">
+                        <view class="flight_no">{{item.start_at}}</view>
+                        <view class="flight_date">{{item.flight_away.flight_no}}</view>
+                    </view>
+                    <view class="tips">{{item.flight_away.departure_airport_name}} - {{item.flight_away.arrival_airport_name}}</view>
+                </view>
+            </view>
+            <view class="info__item_container" style="margin-top: 10rpx;">
+                <view class="info__item">
+                    <view class="flight">
+                        <view class="flight_no">{{item.end_at}}</view>
+                        <view class="flight_date">{{item.flight_home.flight_no}}</view>
+                    </view>
+                    <view class="tips">
+                        {{item.flight_home.departure_airport_name}} - {{item.flight_home.arrival_airport_name}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

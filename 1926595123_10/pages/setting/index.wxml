@@ -1,0 +1,77 @@
+<nav-bar>帐号设置</nav-bar>
+<view class="setting__container">
+    <view class="points__list_entry">
+        <view class="account__inner">
+            <view class="account__setting_content">
+                <view bindtap="setAvatarHandler" class="layout-row list_entry_item">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">头像</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <view class="setting__text" wx:if="{{store.user.avatar}}">
+                            <view class="avatar__image">
+                                <view class="avatar__img" style="background-image: url({{store.user.avatar}})"></view>
+                            </view>
+                        </view>
+                        <view class="avatar__tips" wx:else>点击设置</view>
+                        <image mode="widthFix" src="../../assets/images/icon_arrow_r_s.png"></image>
+                    </view>
+                </view>
+                <view class="layout-row list_entry_item">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">账户</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <view class="setting__text">{{store.user.mobile}}</view>
+                    </view>
+                </view>
+                <view bindtap="nameUpdateHandler" class="layout-row list_entry_item">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">姓名</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <view class="setting__text">{{store.user.name}}</view>
+                        <image mode="widthFix" src="../../assets/images/icon_arrow_r_s.png"></image>
+                    </view>
+                </view>
+                <view bindtap="genderUpdateHandler" class="layout-row list_entry_item">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">性别</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <view class="setting__text">{{store.user.gender==2?'女':'男'}}</view>
+                        <image mode="widthFix" src="../../assets/images/icon_arrow_r_s.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="sys__settings_container">
+                <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/account/reset/index">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">修改密码</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <image mode="widthFix" src="../../assets/images/icon_arrow_b_right.png"></image>
+                    </view>
+                </navigator>
+                <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/account/index?change=1">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">切换帐户</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <image mode="widthFix" src="../../assets/images/icon_arrow_b_right.png"></image>
+                    </view>
+                </navigator>
+            </view>
+            <view class="sys__settings_container" wx:if="{{store.user.is_admin&&store.user.admin_point}}">
+                <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/setting/point/index">
+                    <view class="list__entry_title text-left">
+                        <view class="title__text">积分充值</view>
+                    </view>
+                    <view class="list__entry_arrow text-right">
+                        <image mode="widthFix" src="../../assets/images/icon_arrow_b_right.png"></image>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>

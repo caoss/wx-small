@@ -1,0 +1,23 @@
+<nav-bar>我的会员码</nav-bar>
+<view class="container">
+    <view class="container__inner">
+        <view class="card__qrcode text-center">
+            <view class="avatar__wrap">
+                <view class="avatar" style="background-image: url('{{user.avatar}}')"></view>
+                <view class="nickname">{{user.name}}</view>
+            </view>
+            <view class="card__qrcode_container">
+                <image class="card__qrcode_image" src="{{qrcode}}" wx:if="{{qrcode}}"></image>
+            </view>
+            <view class="card__qrcode_tip">扫描二维码加‘{{user.name}}’入团</view>
+        </view>
+        <view class="divide"></view>
+        <view class="card__shop text-center">
+            <form-wrapper url="/pages/member/card/index">
+                <view class="payApply">
+                    <view class="inline-block">打开我的优惠码</view>
+                </view>
+            </form-wrapper>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,40 @@
+<nav-bar>领取积分</nav-bar>
+<view class="gift__container">
+    <view class="gift__content text-center">
+        <view class="gift__bg"></view>
+        <view class="gift__content_detail">
+            <view class="gift__avatar" style="background-image: url({{details.from_user.avatar}})"></view>
+            <view class="gift__avatar_nickname">
+                <view class="inline-block">{{details.from_user.name}}</view>
+            </view>
+            <view class="gift__tips">
+                <view class="inline-block">送您日上会员积分</view>
+            </view>
+            <view class="gift__nums">
+                <view class="inline-block">{{details.points}}</view>
+            </view>
+            <view bindtap="acceptHandler" class="get__gift" wx:if="{{details.is_gift_pending}}">
+                <view class="get__gift_text">领取</view>
+            </view>
+            <view class="get__gift" wx:else>
+                <view class="get__gift_text">已领取</view>
+            </view>
+        </view>
+    </view>
+    <view class="gift__status text-center">
+        <block wx:if="{{details.is_gift_pending}}">
+            <view class="inline-block status_timeout" wx:if="{{details.is_expired}}">
+                手慢了~红包已过期
+            </view>
+        </block>
+        <view class="inline-block status_success" wx:else>
+            <block wx:if="{{store.user.id==details.to_user.id}}">
+                恭喜您！您已成功领取{{details.points}}积分
+                <navigator class="highlight" hoverClass="none" url="/pages/points/index">我的积分>></navigator>
+            </block>
+            <view class="inline-block status_fail" wx:else>
+                    手慢了~红包已被别人领取了
+                </view>
+        </view>
+    </view>
+</view>

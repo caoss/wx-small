@@ -1,0 +1,21 @@
+<view>
+    <view class="order__list-category" style="top:{{fixedTop}}">
+        <scroll-view class="order__list-category-scoll-inner" scrollX="{{true}}" wx:if="{{scroll}}">
+            <block wx:if="{{tabs.length}}">
+                <view bindtap="changeHandler" class="item {{activeTab==index?'active':''}}" data-index="{{index}}" id="{{item.id}}" wx:for="{{tabs}}" wx:key="{{id}}">
+                    {{item.label}}
+                </view>
+            </block>
+        </scroll-view>
+        <view class="order__list-category-inner" wx:else>
+            <block wx:if="{{tabs.length}}">
+                <view bindtap="changeHandler" class="item {{activeTab==index?'active':''}}" data-index="{{index}}" id="{{item.id}}" wx:for="{{tabs}}" wx:key="{{id}}">
+                    {{item.label}}
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="order__list-item-container">
+        <slot></slot>
+    </view>
+</view>

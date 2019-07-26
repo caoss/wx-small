@@ -1,0 +1,5 @@
+<view class="tabpane-content-container" wx:if="{{current}}">
+    <view class="tabpane-content">
+        <slot></slot>
+    </view>
+</view>

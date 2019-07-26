@@ -1,0 +1,14 @@
+<view bindtap="uploadFileHandler" class="upload-panel">
+    <view bindtap="previewImages" class="cover" style="background-image: url({{imageurl}})" wx:if="{{imageurl}}"></view>
+    <view class="upload-btn" wx:else>
+        <view class="add">
+            <image mode="widthFix" src="../../assets/images/icon_add_active.png"></image>
+        </view>
+        <view class="tips">
+            <slot></slot>
+        </view>
+    </view>
+    <view capture-catch:tap="deleteHandler" class="del-btn" wx:if="{{imageurl&&!disabled}}">
+        <image mode="scaleToFill" src="../../assets/images/icon_delete.png"></image>
+    </view>
+</view>

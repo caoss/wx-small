@@ -1,0 +1,7 @@
+var pointsText = (function(record) {
+    var symbol = record.symbol;
+    return (symbol + record.points)
+});
+module.exports = ({
+    pointsText: pointsText,
+});

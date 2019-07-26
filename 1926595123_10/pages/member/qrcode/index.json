@@ -1,0 +1,24 @@
+{
+    "backgroundColor": "#212121",
+    "usingComponents": {
+        "tour-group-list": "/components/tour-group-list/index",
+        "tabs": "/components/s-tabs/index",
+        "get-valid-code": "/components/input-item/get-valid-code/index",
+        "phone-input-item": "/components/input-item/phone-input-item/index",
+        "point-input-item": "/components/input-item/point-input-item/index",
+        "alert-panel": "/components/alert-panel/index",
+        "radio-button": "/components/radio-button/index",
+        "tab-pane": "/components/s-tabs/tab-pane/index",
+        "s-loading": "/components/s-loading/index",
+        "avatar": "/components/avatar/index",
+        "modal-panel": "/components/modal-panel/index",
+        "input-item": "/components/input-item/index",
+        "s-button": "/components/s-button/index",
+        "nav-bar": "/components/navbar/index",
+        "form-wrapper": "/components/form-wrapper/index",
+        "notice-panel": "/components/notice-panel/index",
+        "ticket-panel": "/components/ticket-panel/index",
+        "fixed-bottom-bar": "/components/fixed-bottom-bar/index",
+        "upload-panel": "/components/upload-panel/index"
+    }
+}

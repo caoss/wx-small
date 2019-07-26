@@ -1,0 +1,57 @@
+<nav-bar>{{type=='receive'?'获赠记录':type=='give'?'转赠记录':''}}</nav-bar>
+<view class="points__list_wrap">
+    <view class="point__list_wrap">
+        <block wx:if="{{list.length}}">
+            <view bindtap="pointClickHandler" class="point__list_item" data-info="{{item}}" wx:for="{{list}}" wx:key="id">
+                <view class="point__package_item ponit__details_wrap">
+                    <view class="text-center">
+                        <view class="nums">
+                            <view class="inline-block">{{item.points}}</view>
+                        </view>
+                        <view class="tips">
+                            <view class="inline-block">赠送积分数量</view>
+                        </view>
+                        <view class="from__user" wx:if="{{item.type_ex=='gift_receive'}}">
+                            <view class="inline-block">来自好友{{item.from_user.name}}</view>
+                        </view>
+                        <view class="from__user" wx:if="{{item.type_ex=='gift_give'&&!item.is_gift_pending}}">
+                            <view class="inline-block">好友{{item.to_user.name}}已领取</view>
+                        </view>
+                        <view class="present__tips" wx:if="{{item.is_gift_pending}}">
+                            过期时间 {{item.confirm_deadline}}
+                        </view>
+                        <view class="choose__friend_btn">
+                            <block wx:if="{{item.type_ex=='gift_receive'}}">
+                                <block wx:if="{{item.is_gift_pending}}">
+                                    <s-button wx:if="{{item.is_expired}}">已过期</s-button>
+                                    <s-button bindclick="acceptHandler" class="native__button" data-id="{{item.id}}" data-index="{{index}}" disabled="{{item.loading}}" loading="{{item.loading}}" wx:else>立即领取</s-button>
+                                </block>
+                                <s-button wx:else>已经领取</s-button>
+                            </block>
+                            <block wx:if="{{item.type_ex=='gift_give'}}">
+                                <block wx:if="{{item.is_gift_pending}}">
+                                    <s-button wx:if="{{item.is_expired}}">已过期</s-button>
+                                    <block wx:else>
+                                        <s-button disabled="{{true}}" wx:if="{{item.to_user.id}}">等待好友{{item.to_user.name}}领取</s-button>
+                                        <button class="native__button" data-point="{{item}}" openType="share" wx:else>赠送给好友</button>
+                                    </block>
+                                </block>
+                                <s-button disabled data-point="{{item}}" wx:else>已经领取</s-button>
+                            </block>
+                        </view>
+                        <view class="present_date inline-block">{{item.created_at}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="no__more text-center" wx:if="{{!hasMore}}">
+                <view class="inline-block">── 已加载所有数据 ──</view>
+            </view>
+        </block>
+        <view class="no__more text-center" wx:if="{{list.length==0&&!isLoading}}">
+            <view class="inline-block">── 暂无数据 ──</view>
+        </view>
+        <view class="no__more text-center" wx:if="{{isLoading}}">
+            <view class="inline-block">── 数据加载中…… ──</view>
+        </view>
+    </view>
+</view>

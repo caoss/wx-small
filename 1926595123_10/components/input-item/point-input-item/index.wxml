@@ -1,0 +1,20 @@
+<view class="input-item-container" style="{{styles}}">
+    <view class="input__item">
+        <view class="label">
+            {{label}}
+        </view>
+        <view class="input__wrapper">
+            <view class="input__inner">
+                <input bindblur="bindBlurHandler" bindfocus="bindFocusHandler" bindinput="bindInputHandler" disabled="{{disabled}}" focus="{{focus}}" maxlength="{{maxlength}}" password="{{password}}" placeholder="{{placeholder}}" style="{{styles}}" type="{{type}}" value="{{value}}"></input>
+                <view class="text__btn">
+                    <view class="action__text">
+                        <slot name="action"></slot>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="error__message">
+            <slot name="error"></slot>
+        </view>
+    </view>
+</view>

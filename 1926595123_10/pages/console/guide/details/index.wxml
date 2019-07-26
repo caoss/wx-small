@@ -1,0 +1,61 @@
+<nav-bar>导游审核</nav-bar>
+<view class="apply__container">
+    <view class="form__base_container">
+        <view class="input__item">
+            <input-item disabled="{{true}}" label="姓名" value="{{user.name}}"></input-item>
+        </view>
+        <view class="input__item">
+            <phone-input-item disabled="{{true}}" value="{{user.mobile}}"></phone-input-item>
+        </view>
+    </view>
+    <view class="form__card_container">
+        <view class="input__item">
+            <input-item disabled="{{true}}" label="身份证" type="number" value="{{user.id_num}}"></input-item>
+        </view>
+    </view>
+    <view class="panel__container transparent-bg">
+        <view class="layout-row">
+            <view class="card" wx:if="{{user.img_id_card_1}}">
+                <upload-panel disabled="{{true}}" imageurl="{{user.img_id_card_1}}"></upload-panel>
+            </view>
+            <view class="card" wx:if="{{user.img_id_card_2}}">
+                <upload-panel disabled="{{true}}" imageurl="{{user.img_id_card_2}}"></upload-panel>
+            </view>
+        </view>
+    </view>
+    <view class="panel__container" wx:if="{{user.img_certificate}}">
+        <upload-panel disabled="{{true}}" imageurl="{{user.img_certificate}}"></upload-panel>
+    </view>
+    <view class="panel__container" wx:if="{{user.img_contract}}">
+        <upload-panel disabled="{{true}}" imageurl="{{user.img_contract}}"></upload-panel>
+    </view>
+</view>
+<fixed-bottom-bar>
+    <view class="action-container layout-row btn-row" wx:if="{{currentType==0}}">
+        <div class="inner__action_inner">
+            <view class="flex__item_1 text-left">
+                <s-button bgcolor="#F93949" bindclick="rejectApplyHandler" data-verified="0">驳回申请</s-button>
+            </view>
+            <view class="flex__item_1 text-right">
+                <s-button bindclick="applyVerifiedHandler" data-verified="1">通过申请</s-button>
+            </view>
+        </div>
+    </view>
+    <view class="action-container layout-row" wx:if="{{currentType==1}}">
+        <view class="inner__action">
+            <s-button bgcolor="#98BC5D">您的导游认证申请已通过</s-button>
+        </view>
+    </view>
+    <view class="action-container layout-row" wx:if="{{currentType==-1}}">
+        <view class="inner__action">
+            <s-button bgcolor="#F93949">您的领队认证申请未通过</s-button>
+        </view>
+    </view>
+</fixed-bottom-bar>
+<modal-panel bindclick="rejectHandler" isShow="{{isShow}}">
+    <view class="join__group_info">
+        <view class="info__item">
+            <textarea bindinput="bindValueHandler" data-key="reject_msg" placeholder="驳回原因" showConfirmBar="false"></textarea>
+        </view>
+    </view>
+</modal-panel>

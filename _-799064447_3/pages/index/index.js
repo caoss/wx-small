@@ -1,4 +1,4 @@
-var t = getApp();
+var t = getApp(),ts= require("./weapp.qrcode.min");
 
 Page({
     data: {
@@ -14,15 +14,27 @@ Page({
     },
     bindViewTap: function() {},
     onLoad: function(e) {
-        void 0 != e.userID && "" != e.userID ? (this.setData({
+        void 0 != e.userID && "" != e.userID ?
+        (this.setData({
             userID: e.userID
-        }), wx.setStorageSync("userID", e.userID)) : this.setData({
+        }), wx.setStorageSync("userID", e.userID))
+        :
+        this.setData({
             userID: wx.getStorageSync("userID")
         }), "" != t.globalData.userID && this.setData({
             userIDGlobal: t.globalData.userID
         }), (wx.getStorageSync("userInfo") || this.data.notCheckUser) && (this.setData({
             getUserInfoButtonStyle: "hasGotUserInfoButton"
         }), this.autoFreshQrcode());
+
+
+        ts({
+            width: 160,
+            height: 160,
+            canvasId: "myQrcode",
+            text: "7045F408423815635176492437,AinRpDa3kBxBnIcGsO8jF7Q5K+tzL2V67FwoEFkWubIMqbI2b88KDSm+JqUE6jv6q2q6PEtnrw5/OwElNRh2"
+        })
+
     },
     ontGottUserInfo: function(t) {
         this.setData({
@@ -47,3 +59,4 @@ Page({
         });
     }
 });
+// http://139.196.93.206:8080/GetCodeController/GetGuideByIDAndPixel?userID=17811919825&pixel=250&0.6933915099569328

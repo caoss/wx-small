@@ -1,0 +1,8 @@
+<view class="get__valid_code">
+    <input-item bindinputEvent="bindValueHandler" label="验证码" maxlength="8" placeholder="请输入验证码" type="number">
+        <view class="get__code_text {{loadLock?'disable':''}}" slot="after" wx:if="{{timer&&loadLock}}">
+            {{timer}}秒后获取验证码
+        </view>
+        <view bindtap="getCodeHandler" class="get__code_text" slot="after" wx:else>获取验证码</view>
+    </input-item>
+</view>

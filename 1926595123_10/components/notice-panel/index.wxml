@@ -1,0 +1,10 @@
+<view class="notice__container">
+    <view class="notice__inner">
+        <image mode="widthFix" src="../../assets/images/icon_notice.png"></image>
+        <view class="notice__content">
+            <view class="notice__text">
+                <slot></slot>
+            </view>
+        </view>
+    </view>
+</view>

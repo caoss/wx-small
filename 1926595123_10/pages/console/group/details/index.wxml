@@ -1,0 +1,28 @@
+<nav-bar>团队详情</nav-bar>
+<view class="apply__container">
+    <view class="form__base_container">
+        <view class="input__item">
+            <input-item disabled="{{true}}" label="团队名称" value="{{group.group_name}}"></input-item>
+        </view>
+        <view class="input__item">
+            <input-item disabled="{{true}}" label="团员数量" value="{{group.max_members}}"></input-item>
+        </view>
+    </view>
+    <view class="panel-container">
+        <view class="ticket__item" wx:for="{{flightList}}" wx:key="{{item.id}}">
+            <ticket-panel disabled="{{true}}" flight="{{item}}"></ticket-panel>
+        </view>
+    </view>
+</view>
+<fixed-bottom-bar>
+    <view class="submit-normal-btn btn__fixed_wrap" hoverClass="none" wx:if="{{group.is_verified===0&&edit}}">
+        <view class="layout-row btn-row">
+            <view class="flex__item_1 text-left">
+                <s-button bgcolor="#F93949" bindclick="applyVerifiedHandler" data-verified="0">驳回申请</s-button>
+            </view>
+            <view class="flex__item_1 text-right">
+                <s-button bindclick="applyVerifiedHandler" data-verified="1">通过申请</s-button>
+            </view>
+        </view>
+    </view>
+</fixed-bottom-bar>

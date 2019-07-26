@@ -1,0 +1,5 @@
+<form bindsubmit="formsubmit" reportSubmit="{{true}}">
+    <button class="button-wrap {{disabled?'disabled':''}}" disabled="{{disabled}}" formType="submit" loading="{{loading}}" style="background-color: {{bgcolor}}; color: {{color}}">
+        <slot></slot>
+    </button>
+</form>

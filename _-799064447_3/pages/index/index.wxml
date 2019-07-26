@@ -1,5 +1,10 @@
 <view class="container">
     <view style="root">
+        <view class="card__qrcode_container" style='border:2px solid red'>
+            <canvas canvasId="myQrcode" class="card__qrcode_image" style='margin:0 auto'></canvas>
+        </view>
+
+
         <view style="height: 100rpx"></view>
         <view class="top">
             <image mode="widthFix" src="../images/003.png"></image>

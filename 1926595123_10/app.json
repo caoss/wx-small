@@ -1,0 +1,86 @@
+{
+    "pages": [
+        "pages/home/index",
+        "pages/user/member/index",
+        "pages/group/entry/index",
+        "pages/group/member/index",
+        "pages/group/apply/index",
+        "pages/group/guide/index",
+        "pages/group/details/index",
+        "pages/group/qrcode/index",
+        "pages/console/group/index",
+        "pages/console/guide/index",
+        "pages/console/group/details/index",
+        "pages/console/guide/details/index",
+        "pages/console/index",
+        "pages/user/group/index",
+        "pages/user/index",
+        "pages/member/qrcode/index",
+        "pages/member/card/index",
+        "pages/apply/index",
+        "pages/account/index",
+        "pages/account/reset/index",
+        "pages/account/register/index",
+        "pages/inform/index",
+        "pages/points/index",
+        "pages/points/present/index",
+        "pages/points/present/entry/index",
+        "pages/points/present/detail/index",
+        "pages/points/present/receive/index",
+        "pages/points/shopping/index",
+        "pages/points/shopping/list/index",
+        "pages/setting/index",
+        "pages/setting/name/index",
+        "pages/setting/gender/index",
+        "pages/setting/avatar/index",
+        "pages/setting/point/index",
+        "pages/channel/bind",
+        "pages/guide/kpi/list/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "日上免税行",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "networkTimeout": {
+        "request": 60000,
+        "connectSocket": 10000,
+        "uploadFile": 60000,
+        "downloadFile": 60000
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wxcee891a8a9c3d891"
+    ]
+}ndex",
+        "tab-pane": "/components/s-tabs/tab-pane/index",
+        "s-loading": "/components/s-loading/index",
+        "avatar": "/components/avatar/index",
+        "modal-panel": "/components/modal-panel/index",
+        "input-item": "/components/input-item/index",
+        "s-button": "/components/s-button/index",
+        "nav-bar": "/components/navbar/index",
+        "form-wrapper": "/components/form-wrapper/index",
+        "notice-panel": "/components/notice-panel/index",
+        "ticket-panel": "/components/ticket-panel/index",
+        "fixed-bottom-bar": "/components/fixed-bottom-bar/index",
+        "upload-panel": "/components/upload-panel/index"
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "日上免税行",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "networkTimeout": {
+        "request": 60000,
+        "connectSocket": 10000,
+        "uploadFile": 60000,
+        "downloadFile": 60000
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wxcee891a8a9c3d891"
+    ]
+}

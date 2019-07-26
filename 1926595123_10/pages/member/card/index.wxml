@@ -1,0 +1,43 @@
+<nav-bar>我的优惠码</nav-bar>
+<view class="container">
+    <view class="container__inner">
+        <view class="card__header text-center">
+            <checkbox-group bindchange="checkboxChange" class="check__wrapper">
+                <label class="checkbox" wx:for="{{items}}" wx:key="{{item.name}}">
+                    <checkbox checked="{{item.checked}}" color="#c09462" value="{{item.name}}"></checkbox>{{item.name}}
+                </label>
+            </checkbox-group>
+            <view bindtap="toggleStatus" class="available__title">
+                <view class="available__point">可用积分</view>
+                <image hidden="{{points!=='***'}}" mode="widthFix" src="../../../assets/images/sale_num_close.png"></image>
+                <image hidden="{{points==='***'}}" mode="widthFix" src="../../../assets/images/sale_num_open.png"></image>
+            </view>
+            <navigator class="point__entry" hoverClass="none" url="/pages/points/shopping/index">
+                <view class="inline-block">转入</view>
+                <image mode="widthFix" src="../../../assets/images/arrow_right_color.png"></image>
+            </navigator>
+            <view class="available__point__num">{{points}}</view>
+            <view class="card__text">全场商品{{user.member_discount}}折{{user.member_reward?'+返'+user.member_reward+'%积分':''}}</view>
+        </view>
+        <view class="card__qrcode text-center">
+            <view class="card__qrcode_container">
+                <canvas canvasId="myQrcode" class="card__qrcode_image"></canvas>
+            </view>
+            <view class="card__qrcode_tip">门店付款时出示此二维码即可享受优惠</view>
+        </view>
+        <view class="divide"></view>
+        <view class="card__shop">
+            <view class="shop__title">
+                <view class="inline-block vertical-middle">使用门店：</view>
+            </view>
+            <view class="shop__list_container">
+                <view class="shop__list_item">
+                    <view class="inline-block">上海浦东国际机场T1/T2（出境店，入境店）</view>
+                </view>
+                <view class="shop__list_item">
+                    <view class="inline-block">上海虹桥机场T1（出境店，入境店）</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

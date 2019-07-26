@@ -1,0 +1,5 @@
+<view class="phone__input_item">
+    <input-item bindblurEvent="blurHandler" bindfocusEvent="focusHandler" bindinputEvent="inputHandler" disabled="{{disabled}}" focus="{{focus}}" label="手机" maxlength="11" placeholder="请输入手机号" type="number" value="{{value}}">
+        <view class="phone__text" slot="before">+86</view>
+    </input-item>
+</view>

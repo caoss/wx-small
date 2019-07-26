@@ -1,0 +1,16 @@
+<nav-bar>渠道会员卡</nav-bar>
+<view style="padding: 20rpx;font-size: 30rpx;line-height: 1.5;">
+    <view style="font-weight:bold;">渠道绑定</view>
+    <view>APPID {{info.appId}}</view>
+    <view>Channel   {{info.extraData.channel}}</view>
+    <view>USER_ID   {{info.extraData.user.id}}</view>
+    <view>NICKNAME      {{info.extraData.user.nickname}}</view>
+    <view>MOBILE      {{info.extraData.user.mobile}}</view>
+    <view style="font-weight:bold;margin-top: 30rpx;">当前日上会员</view>
+    <view>{{user.name}}</view>
+    <view>{{user.mobile}}</view>
+    <view>{{user.member_code}}</view>
+    <view style="margin-top: 30rpx;"></view>
+    <button bindtap="goBack" type="primary" wx:if="{{bindSuccess}}">绑定完成 返回</button>
+    <button bindtap="doBind" type="primary" wx:else>确认开通绑定</button>
+</view>

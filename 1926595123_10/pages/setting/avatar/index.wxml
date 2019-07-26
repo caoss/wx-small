@@ -1,0 +1,11 @@
+<nav-bar>头像设置</nav-bar>
+<view class="container">
+    <view class="setting__item_container">
+        <view class="avatar">
+            <view class="avatar__img" style="background-image: url({{store.user.avatar}})"></view>
+        </view>
+    </view>
+    <view class="setting__item_submit">
+        <s-button bindclick="setAvatarHandler" class="submit">点击更换头像</s-button>
+    </view>
+</view>

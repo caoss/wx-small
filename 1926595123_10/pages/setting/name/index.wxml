@@ -1,0 +1,11 @@
+<nav-bar>姓名修改</nav-bar>
+<view class="container">
+    <view class="points__list_entry">
+        <view class="setting__item_container">
+            <input-item bindinputEvent="nameChangeHandler" value="{{store.user.name}}"></input-item>
+        </view>
+        <view class="setting__item_submit">
+            <s-button bindclick="updateUserInfo" loading="{{loading}}">保存</s-button>
+        </view>
+    </view>
+</view>

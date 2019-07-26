@@ -1,0 +1,98 @@
+<nav-bar>我的积分</nav-bar>
+<view class="container">
+    <view class="header point__header">
+        <view class="header__inner">
+            <view class="title">
+                <view class="inline-block">总积分</view>
+                <view bindtap="toggleNumsHandler" class="toggle__nums text-center">
+                    <image hidden="{{!numHidden}}" mode="widthFix" src="../../assets/images/icon_passwd_hide.png"></image>
+                    <image hidden="{{numHidden}}" mode="widthFix" src="../../assets/images/icon_passwd_show.png"></image>
+                </view>
+            </view>
+            <view class="nums">
+                <view class="nums__text">{{totalPoints}}</view>
+            </view>
+        </view>
+        <view class="point__remain">
+            <view class="layout-row">
+                <view bindtap="pointInfoHandler" class="point__remain_nums">
+                    <view class="inline-block">总积分 = 线上积分 + 门店积分 + 锁定积分</view>
+                    <image class="point__icon_help" mode="widthFix" src="../../assets/images/aui-icon-question.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="points__category text-center layout-row">
+            <view class="points__online_entry">
+                <view class="entry__title text-center">
+                    <view class="inline-block">线上积分</view>
+                </view>
+                <view class="entry__point__content">
+                    <view class="entry__point_nums">{{onlinePoints}}</view>
+                    <view class="entry__point_lock">
+                        {{store.points.online_lock>0?store.points.online_lock+'锁定中':''}}
+                    </view>
+                    <navigator class="entry__button text-center" hoverClass="none" url="/pages/points/shopping/index?is_back=1">
+                        <view class="inline-block">转入</view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="points__online_entry">
+                <view class="entry__title">门店积分</view>
+                <view class="entry__point__content">
+                    <view class="entry__point_nums">{{offlinePoints}}</view>
+                    <view class="entry__point_lock">
+                        {{store.points.offline_lock>0?store.points.offline_lock+'锁定中':''}}
+                    </view>
+                    <navigator class="entry__button text-center" hoverClass="none" url="/pages/points/shopping/index">
+                        <view class="inline-block">转入</view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="points__list_entry">
+        <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/points/present/entry/index">
+            <view class="list__entry_title text-left">
+                <image mode="widthFix" src="../../assets/images/icon_account.png"></image>
+                <view class="title__text">积分转赠</view>
+            </view>
+            <view class="list__entry_arrow text-right">
+                <image mode="widthFix" src="../../assets/images/icon_arrow_b_right.png"></image>
+            </view>
+        </navigator>
+        <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/points/present/list/index?type=receive">
+            <view class="list__entry_title text-left">
+                <image mode="widthFix" src="../../assets/images/icon_all_point.png"></image>
+                <view class="title__text">积分获赠</view>
+            </view>
+            <view class="list__entry_arrow text-right">
+                <view class="notice" wx:if="{{store.notification.points_gift>0}}">您有新的积分待领取</view>
+                <image mode="widthFix" src="../../assets/images/icon_arrow_b_right.png"></image>
+            </view>
+        </navigator>
+        <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/points/shopping/list/index?type=transaction">
+            <view class="list__entry_title text-left">
+                <image mode="widthFix" src="../../assets/images/point_list_detail.png"></image>
+                <view class="title__text">收支明细</view>
+            </view>
+            <view class="list__entry_arrow text-right">
+                <image mode="widthFix" src="../../assets/images/icon_arrow_b_right.png"></image>
+            </view>
+        </navigator>
+    </view>
+    <alert-panel isShow="{{isShow}}">
+        <view class="point__info_message">
+            <view class="info__title">
+                积分说明
+            </view>
+            <view class="info__item">
+                1、线上积分是在线上预订购物时专用，门店积分是在线下门店购物时专用，二者不可通用，但支持积分转移，转移成功后即可在对应场景下使用
+            </view>
+            <view class="info__item">
+                2、锁定积分是指在积分转移过程中，由于需要一定的时间才能转移成功，在此过程中，转移的积分处于锁定状态，不可使用
+            </view>
+        </view>
+    </alert-panel>
+</view>

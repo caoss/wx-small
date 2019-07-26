@@ -1,0 +1,40 @@
+<nav-bar>积分兑换</nav-bar>
+<view class="container">
+    <view class="point__header">
+        <view class="header__inner">
+            <view class="title">{{isBack?'可转入线上的积分':'可转入门店的积分'}}</view>
+            <view class="nums">{{isBack?store.points.offline:store.points.online}}</view>
+        </view>
+        <navigator class="points__detail_entry" hoverClass="none" url="/pages/points/shopping/list/index?type=transfer">
+            积分兑换记录
+        </navigator>
+        <view class="point__remain">
+            <view class="layout-row">
+                <view class="point__remain_nums text-left">
+                    <view class="inline-block" wx:if="{{!isBack}}">当前门店积分：{{store.points.offline}}</view>
+                    <view class="inline-block" wx:else>当前线上积分：{{store.points.online}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="point__list_wrap">
+            <view class="present__point">
+                <point-input-item focus bindblurEvent="handlerBlur" bindfocusEvent="handlerFocus" bindinputEvent="handlerAmount" disabled="{{isBack?store.points.offline<=0:store.points.online<=0}}" label="转入数量" type="number" value="{{amount}}">
+                    <view bindtap="handlerFlush" class="inline-block present__point_flush {{isBack?store.points.offline<=0:store.points.online<=0?'disabled':''}}" slot="action">
+                        全部转入
+                    </view>
+                    <view class="error" slot="error" wx:if="{{errMsg}}">{{errMsg}}</view>
+                </point-input-item>
+            </view>
+        </view>
+    </view>
+    <fixed-bottom-bar bottom="{{keyboardHeight}}">
+        <view class="btn__fixed_wrap">
+            <s-button bindtap="submitHandler" disabled="{{submitLock}}">确认转入</s-button>
+        </view>
+    </fixed-bottom-bar>
+    <modal-panel bindclick="modalClickHandler" isShow="{{isShow}}" title="确认兑换">
+        <view>本次将会转入{{amount}}积分，预计3-5分钟转入成功，请耐心等待</view>
+    </modal-panel>
+</view>

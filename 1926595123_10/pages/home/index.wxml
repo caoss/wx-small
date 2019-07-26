@@ -1,0 +1,96 @@
+<nav-bar>首页</nav-bar>
+<view class="top__hight" style="top: {{app.globalData.navBarHeight}}px"></view>
+<view class="container">
+    <form-wrapper url="/pages/member/qrcode/index">
+        <view class="member__card">
+            <view class="nickname">{{user.name}}</view>
+        </view>
+    </form-wrapper>
+    <form-wrapper url="/pages/points/index">
+        <view class="member__points panel">
+            <view class="home__b_icon">
+                <image mode="widthFix" src="https://sunrisedutyfree-weixin.oss-cn-shanghai.aliyuncs.com/static/icon_point_home.png"></image>
+            </view>
+            <view class="panel_inner">
+                <view class="panel__title">我的积分</view>
+                <view class="nums">{{user.points_total}}</view>
+            </view>
+            <view class="notications gift text-center" wx:if="{{notification.points_gift>0}}">
+                <view class="inline-block">{{notification.points_gift}}</view>
+            </view>
+        </view>
+    </form-wrapper>
+    <form-wrapper url="/pages/user/index">
+        <view class="member__group panel">
+            <view class="home__b_icon">
+                <image mode="widthFix" src="https://sunrisedutyfree-weixin.oss-cn-shanghai.aliyuncs.com/static/icon_group_home.png"></image>
+            </view>
+            <view class="panel_inner">
+                <view class="panel__title">旅行团队</view>
+                <view class="nums text-center">{{user.group_cnt}}</view>
+            </view>
+        </view>
+    </form-wrapper>
+    <view class="member__manage layout-row panel">
+        <form-wrapper class="manage__item" url="/pages/member/card/index">
+            <image mode="widthFix" src="../../assets/images/icon_pay_qr.png"></image>
+            <view class="manage__item_text">优惠码</view>
+        </form-wrapper>
+        <form-wrapper bindtap="openScanner" class="manage__item">
+            <image mode="widthFix" src="../../assets/images/icon_h_scan.png"></image>
+            <view class="manage__item_text">扫一扫</view>
+        </form-wrapper>
+        <form-wrapper class="manage__item" url="/pages/inform/index">
+            <image mode="widthFix" src="../../assets/images/icon_inform.png"></image>
+            <view class="manage__item_text">通知中心</view>
+            <view class="notications" wx:if="{{notification.message>0}}">
+                <view class="inline">{{notification.message}}</view>
+            </view>
+        </form-wrapper>
+    </view>
+    <form-wrapper url="/pages/group/entry/index">
+        <view class="entry__item_wrap">
+            <view class="entry__item layout-row">
+                <view class="entry__item_title">
+                    <image mode="widthFix" src="../../assets/images/icon_guide_apply.png"></image>
+                    <view class="entry__item_title_text">导游中心</view>
+                </view>
+                <view class="entry__item_arrow">
+                    <image mode="widthFix" src="../../assets/images/icon_arrow_right_gold.png"></image>
+                </view>
+            </view>
+        </view>
+    </form-wrapper>
+    <form-wrapper url="/pages/console/index" wx:if="{{user.is_admin}}">
+        <view class="entry__item_wrap">
+            <view class="entry__item layout-row">
+                <view class="entry__item_title">
+                    <image mode="widthFix" src="../../assets/images/icon_manage.png"></image>
+                    <view class="entry__item_title_text">管理中心</view>
+                </view>
+                <view class="entry__item_arrow">
+                    <image mode="widthFix" src="../../assets/images/icon_arrow_right_gold.png"></image>
+                </view>
+            </view>
+        </view>
+    </form-wrapper>
+    <form-wrapper url="/pages/setting/index">
+        <view class="entry__item_wrap">
+            <view class="entry__item layout-row">
+                <view class="entry__item_title">
+                    <image mode="widthFix" src="../../assets/images/icon_settings.png"></image>
+                    <view class="entry__item_title_text">帐号设置</view>
+                </view>
+                <view class="entry__item_arrow">
+                    <image mode="widthFix" src="../../assets/images/icon_arrow_right_gold.png"></image>
+                </view>
+            </view>
+        </view>
+    </form-wrapper>
+    <view class="text-center">
+        <image class="logo" mode="widthFix" src="../../assets/images/image_logo.png"></image>
+    </view>
+    <view class="footer text-center">
+        <image class="texture" mode="widthFix" src="../../assets/images/bg_texture_home_s.png"></image>
+    </view>
+</view>

@@ -1,0 +1,19 @@
+<nav-bar>消息中心</nav-bar>
+<view class="container">
+    <view class="list__container">
+        <view class="list__item" wx:for="{{list}}" wx:key="id">
+            <view class="list__item_title {{item.is_read?'':'active'}}">
+                {{item.title}}
+            </view>
+            <view class="list__item_content">
+                {{item.content}}
+            </view>
+            <view class="list__item_date">
+                {{item.created_at}}
+            </view>
+        </view>
+        <view class="loading__more" wx:if="{{loadingLock&&hasMore}}">
+            <view class="inline-block">数据加载中……</view>
+        </view>
+    </view>
+</view>

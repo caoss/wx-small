@@ -1,0 +1,40 @@
+<nav-bar>导游认证</nav-bar>
+<view class="apply__container">
+    <view class="form__base_container">
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="name" disabled="{{disabled}}" label="姓名" placeholder="请输入姓名" value="{{user.name}}"></input-item>
+        </view>
+        <view class="input__item">
+            <phone-input-item bindblurEvent="getValueHandler" data-key="mobile" disabled="{{disabled}}" placeholder="请输入手机号" value="{{user.mobile}}"></phone-input-item>
+        </view>
+    </view>
+    <view class="form__card_container">
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="id_num" disabled="{{disabled}}" label="身份证" placeholder="请输入18位身份证号码" type="idcard" value="{{user.id_num}}"></input-item>
+        </view>
+    </view>
+    <view class="panel__container transparent-bg">
+        <view class="layout-row">
+            <view class="card">
+                <upload-panel bindchoose="chooseHandler" binddelete="deleteHandler" data-key="images.id_card_1" disabled="{{disabled}}" imageurl="{{user.images.id_card_1}}">上传身份证正面照片</upload-panel>
+            </view>
+            <view class="card">
+                <upload-panel bindchoose="chooseHandler" binddelete="deleteHandler" data-key="images.id_card_2" disabled="{{disabled}}" imageurl="{{user.images.id_card_2}}">上传身份证反面照片</upload-panel>
+            </view>
+        </view>
+    </view>
+    <view class="panel__container">
+        <upload-panel bindchoose="chooseHandler" binddelete="deleteHandler" data-key="images.certificate" disabled="{{disabled}}" imageurl="{{user.images.certificate}}">上传完整的导游证照片</upload-panel>
+    </view>
+    <view class="panel__container">
+        <upload-panel bindchoose="chooseHandler" binddelete="deleteHandler" data-key="images.contract" disabled="{{disabled}}" imageurl="{{user.images.contract}}">上传完整的确认函照片</upload-panel>
+    </view>
+    <fixed-bottom-bar>
+        <view class="submit">
+            <s-button bgcolor="#98BC5D" wx:if="{{user.is_verified===1}}">您的导游认证申请已通过</s-button>
+            <s-button disabled="{{true}}" wx:elif="{{user.is_verified===0}}">您的导游认证申请正在审核中，请耐心等待</s-button>
+            <s-button bgcolor="#F93949" bindclick="reSubmit" wx:elif="{{user.is_verified===-1}}">您的领队认证申请未通过，点击重新申请</s-button>
+            <s-button bindclick="submit" wx:else>立即申请</s-button>
+        </view>
+    </fixed-bottom-bar>
+</view>

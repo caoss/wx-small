@@ -1,0 +1,18 @@
+<view class="modal__panel_container" wx:if="{{isShow}}">
+    <view class="modal__panel_inner">
+        <view class="modal__panel_header" wx:if="{{title}}">
+            <view class="title">{{title}}</view>
+        </view>
+        <view class="modal__panel_content">
+            <slot></slot>
+        </view>
+        <view class="modal__panel_footer">
+            <s-button bgcolor="#d9d9d9" bindclick="cancel" class="button _cancel" color="#5a5a5a" wx:if="{{showCancel}}">
+                取消
+            </s-button>
+            <s-button bindclick="confirm" class="button _confirm">
+                确定
+            </s-button>
+        </view>
+    </view>
+</view>

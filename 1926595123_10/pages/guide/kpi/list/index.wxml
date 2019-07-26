@@ -1,0 +1,39 @@
+<nav-bar>经验值详情</nav-bar>
+<view class="points__info" style="top: {{navHeight}}px">{{info?info.total:'-'}}</view>
+<view class="points__detail">
+    <view class="point__list_wrap">
+        <block wx:if="{{list.length}}">
+            <view class="point__list_item" data-info="{{item}}" wx:for="{{list}}" wx:key="id">
+                <view class="layout-row">
+                    <view class="point__content">
+                        <view class="point_title">
+                            <view class="point__title_text">{{item.title}}</view>
+                            <view class="point__effective" wx:if="{{item.effective==0}}">
+                                未生效
+                            </view>
+                            <view class="point__effective error" wx:if="{{item.effective==9}}">
+                                已失效
+                            </view>
+                        </view>
+                        <view class="point_date">{{item.created_at}}</view>
+                    </view>
+                    <view class="point__nums text-right">
+                        <view class="inline-block {{item.effective==0||item.effective==9?'disable':''}}">
+                            {{format.pointsText(item)}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="no__more text-center" wx:if="{{!hasMore}}">
+                <view class="inline-block">── 已加载所有数据 ──</view>
+            </view>
+        </block>
+        <view class="no__more text-center" wx:if="{{list.length==0&&!isLoading}}">
+            <view class="inline-block">── 暂无数据 ──</view>
+        </view>
+        <view class="no__more text-center" wx:if="{{isLoading}}">
+            <view class="inline-block">── 数据加载中…… ──</view>
+        </view>
+    </view>
+</view>
+<wxs module="format" src="../../../../helpers/format.wxs" />

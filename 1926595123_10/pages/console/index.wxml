@@ -1,0 +1,55 @@
+<nav-bar>管理中心</nav-bar>
+<view class="console__container">
+    <view class="console__panel" wx:if="{{store.user.admin_guide}}">
+        <navigator hoverClass="none" url="/pages/console/guide/index?verified=0">
+            <view class="console__header guide layout-row">
+                <view class="text__title">导游审核</view>
+                <view class="text-right">
+                    <image class="icon__more" mode="scaleToFill" src="https://static-image.tripurx.com/sunrise/icon/more.svg"></image>
+                </view>
+            </view>
+            <view class="console__body">
+                <view class="group__statistics layout-row">
+                    <view bindtap="checkGuideStatus" class="flex__item_1 s-item" data-verified="1">
+                        <view class="num">{{stats.guide.verified||0}}</view>
+                        <view class="title">已通过</view>
+                    </view>
+                    <view bindtap="checkGuideStatus" class="flex__item_1 s-item" data-verified="0">
+                        <view class="num">{{stats.guide.pending||0}}</view>
+                        <view class="title">待审核</view>
+                    </view>
+                    <view bindtap="checkGuideStatus" class="flex__item_1 s-item" data-verified="-1">
+                        <view class="num">{{stats.guide.rejected||0}}</view>
+                        <view class="title">未通过</view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="console__panel" wx:if="{{store.user.admin_tour}}">
+        <navigator hoverClass="none" url="/pages/console/group/index?verified=0">
+            <view class="console__header group layout-row">
+                <view class="text__title">开团审核</view>
+                <view class="text-right">
+                    <image class="icon__more" mode="widthFix" src="https://static-image.tripurx.com/sunrise/icon/more.svg"></image>
+                </view>
+            </view>
+        </navigator>
+        <view class="console__body">
+            <view class="group__statistics layout-row">
+                <view bindtap="checkGroupStatus" class="flex__item_1 s-item" data-verified="1">
+                    <view class="num">{{stats.group.verified||0}}</view>
+                    <view class="title">已通过</view>
+                </view>
+                <view bindtap="checkGroupStatus" class="flex__item_1 s-item" data-verified="0">
+                    <view class="num">{{stats.group.pending||0}}</view>
+                    <view class="title">待审核</view>
+                </view>
+                <view bindtap="checkGroupStatus" class="flex__item_1 s-item" data-verified="-1">
+                    <view class="num">{{stats.group.rejected||0}}</view>
+                    <view class="title">未通过</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

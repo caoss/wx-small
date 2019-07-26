@@ -1,0 +1,12 @@
+<nav-bar>积分充值</nav-bar>
+<view class="container">
+    <view class="points__container">
+        <view class="item">
+            <input-item bindinputEvent="bindValueHandler" data-key="mobile" label="手机号码" placeholder="请输入手机号码" type="number" value="{{mobile}}"></input-item>
+        </view>
+        <view class="item">
+            <point-input-item bindblurEvent="handlerBlur" bindfocusEvent="handlerFocus" bindinputEvent="bindValueHandler" data-key="point" disabled="{{points<=0}}" focus="{{true}}" label="数量" type="number" value="{{points}}"></point-input-item>
+        </view>
+    </view>
+    <s-button bindclick="applyHandler" disabled="{{loading}}" loading="{{loading}}">充值</s-button>
+</view>

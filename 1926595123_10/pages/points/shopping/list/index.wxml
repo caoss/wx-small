@@ -1,0 +1,71 @@
+<nav-bar>积分记录</nav-bar>
+<view class="points__detail">
+    <view class="point__list_wrap">
+        <block wx:if="{{list.length}}">
+            <view bindtap="pointClickHandler" class="point__list_item" data-info="{{item}}" wx:for="{{list}}" wx:key="id">
+                <view class="layout-row">
+                    <view class="point__content">
+                        <view class="point_title">
+                            <view class="point__title_text">{{item.title}}</view>
+                            <view class="point__effective" wx:if="{{item.effective==0}}">未生效</view>
+                            <view class="point__effective error" wx:if="{{item.effective==9}}">已失效</view>
+                        </view>
+                        <view class="point_expir_date">
+                            <block wx:if="{{item.symbol==='+'}}">
+                                有效期至{{item.expiration_time}}
+                            </block>
+                        </view>
+                        <view class="point_date">{{item.created_at}}</view>
+                    </view>
+                    <view class="point__nums text-right">
+                        <view class="inline-block {{item.effective==0||item.effective==9?'disable':''}}">{{format.pointsText(item)}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="no__more text-center" wx:if="{{!hasMore}}">
+                <view class="inline-block">── 已加载所有数据 ──</view>
+            </view>
+        </block>
+        <view class="no__more text-center" wx:if="{{list.length==0&&!isLoading}}">
+            <view class="inline-block">── 暂无数据 ──</view>
+        </view>
+        <view class="no__more text-center" wx:if="{{isLoading}}">
+            <view class="inline-block">── 数据加载中…… ──</view>
+        </view>
+    </view>
+    <modal-panel bindclick="modalClickHandler" isShow="{{isShow}}" showCancel="{{false}}" title="积分明细">
+        <view class="ponit__details_wrap">
+            <view class="point__detail_item">
+                <view class="layout-row">
+                    <view class="item__title">
+                        <view>类型</view>
+                    </view>
+                    <view class="item__content">
+                        <view>{{info.title}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="point__detail_item">
+                <view class="layout-row">
+                    <view class="item__title">
+                        <view>积分数</view>
+                    </view>
+                    <view class="item__content">
+                        <view>{{info.points}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="point__detail_item">
+                <view class="layout-row">
+                    <view class="item__title">
+                        <view>时间</view>
+                    </view>
+                    <view class="item__content">
+                        <view>{{info.created_at}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </modal-panel>
+</view>
+<wxs module="format" src="../../../../helpers/format.wxs" />

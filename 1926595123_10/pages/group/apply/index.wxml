@@ -1,0 +1,37 @@
+<nav-bar>申请开团</nav-bar>
+<view class="apply__container">
+    <view class="form__base_container">
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="group_name" disabled="{{disabled}}" label="团队名称" placeholder="请输入团队名称" value="{{group.group_name}}"></input-item>
+        </view>
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="user_name" disabled="{{true}}" label="团长姓名" placeholder="{{user.name}}" value="{{user.name}}"></input-item>
+        </view>
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="max_members" disabled="{{disabled}}" label="团员数量" placeholder="{{group.max_members}}" type="number" value="{{group.max_members}}"></input-item>
+        </view>
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="mobile" disabled="{{true}}" label="团长手机" placeholder="{{user.mobile}}" value="{{user.mobile}}"></input-item>
+        </view>
+        <view class="input__item">
+            <input-item bindblurEvent="getValueHandler" data-key="password" disabled="{{disabled}}" label="入团密码" placeholder="{{group.password}}" type="number" value="{{group.password}}"></input-item>
+        </view>
+        <view class="input__item">
+            <radio-button bindchange="verifyChangeHandler" disabled="{{disabled}}" label="加入审核" options="{{verifyOptions}}" value="{{group.auto_verify}}"></radio-button>
+        </view>
+    </view>
+    <view class="panel-container">
+        <view class="ticket__item" wx:for="{{flightList}}" wx:key="{{item.id}}">
+            <ticket-panel bindflightchange="flightChangeHandler" data-index="{{index}}" disabled="{{disabled}}" flight="{{item}}"></ticket-panel>
+        </view>
+    </view>
+</view>
+<fixed-bottom-bar>
+    <view class="submit-normal-btn btn__fixed_wrap" hoverClass="none">
+        <s-button bgcolor="#98BC5D" bindclick="checkDetails" wx:if="{{group.is_verified===1}}">您的开团申请已通过审核，点击查看详情</s-button>
+        <s-button disabled="{{true}}" wx:elif="{{group.is_verified===0}}">您的开团申请正在审核中，请耐心等待</s-button>
+        <s-button bgcolor="#F93949" bindclick="reApply" wx:elif="{{group.is_verified===-1}}">您的开团申请未通过，点击重新申请</s-button>
+        <s-button bindclick="apply" wx:elif="{{group.is_verified===-2}}">重新申请</s-button>
+        <s-button bindclick="apply" wx:else>立即申请</s-button>
+    </view>
+</fixed-bottom-bar>

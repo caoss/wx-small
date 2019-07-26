@@ -1,0 +1,34 @@
+<nav-bar>导游中心</nav-bar>
+<view class="setting__container">
+    <view class="points__list_entry">
+        <view class="account__setting_content">
+            <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/apply/index">
+                <view class="list__entry_title text-left">
+                    <image mode="widthFix" src="../../../assets/images/icon_item_guide_apply.png"></image>
+                    <view class="title__text">导游认证</view>
+                </view>
+                <view class="list__entry_arrow text-right">
+                    <image mode="widthFix" src="../../../assets/images/icon_arrow_b_right.png"></image>
+                </view>
+            </navigator>
+            <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/group/guide/index" wx:if="{{store.user.is_guide}}">
+                <view class="list__entry_title text-left">
+                    <image mode="widthFix" src="../../../assets/images/icon_item_group_console.png"></image>
+                    <view class="title__text">旅行团管理</view>
+                </view>
+                <view class="list__entry_arrow text-right">
+                    <image mode="widthFix" src="../../../assets/images/icon_arrow_b_right.png"></image>
+                </view>
+            </navigator>
+            <navigator class="layout-row list_entry_item" hoverClass="none" url="/pages/guide/kpi/list/index" wx:if="{{store.user.is_guide}}">
+                <view class="list__entry_title text-left">
+                    <image mode="widthFix" src="../../../assets/images/icon_item_group_console.png"></image>
+                    <view class="title__text">经验值详情</view>
+                </view>
+                <view class="list__entry_arrow text-right">
+                    <image mode="widthFix" src="../../../assets/images/icon_arrow_b_right.png"></image>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

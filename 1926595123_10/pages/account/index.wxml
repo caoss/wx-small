@@ -1,0 +1,51 @@
+<nav-bar>开通日上会员</nav-bar>
+<view class="login__container">
+    <form reportSubmit class="form">
+        <view class="logo">
+            <image mode="widthFix" src="../../assets/images/logo.png"></image>
+        </view>
+        <view class="login__type_container">
+            <view class="layout-row">
+                <view bindtap="typeChangeHandler" class="type__item text-center {{loginType?'active':''}}" data-type="{{1}}">
+                    <view class="inline-block">账户密码登录</view>
+                </view>
+                <view bindtap="typeChangeHandler" class="type__item text-center {{loginType?'':'active'}}" data-type="{{0}}">
+                    <view class="inline-block">短信验证登录</view>
+                </view>
+            </view>
+        </view>
+        <view class="login__form_container">
+            <view class="login__normal" wx:if="{{loginType}}">
+                <view class="input__item">
+                    <phone-input-item bindinputEvent="bindValueHandler" data-key="mobile" placeholder="请输入日上会员帐号/手机号" value="{{mobile}}"></phone-input-item>
+                </view>
+                <view class="input__item">
+                    <input-item bindinputEvent="bindValueHandler" data-key="password" label="密码" password="{{true}}" placeholder="请输入密码" value="{{password}}">
+                        <navigator class="text-center" hoverClass="none" slot="after" url="/pages/account/reset/index">
+                            <view class="inline-block forgot">忘记密码？</view>
+                        </navigator>
+                    </input-item>
+                </view>
+            </view>
+            <view class="login__normal" wx:else>
+                <view class="input__item">
+                    <phone-input-item bindinputEvent="bindValueHandler" data-key="mobile" placeholder="请输入手机号" value="{{mobile}}"></phone-input-item>
+                </view>
+                <view class="input__item">
+                    <get-valid-code bindinputEvent="bindValueHandler" data-key="code" placeholder="请输入验证码" type="login" value="{{mobile}}"></get-valid-code>
+                </view>
+            </view>
+        </view>
+        <view class="submit">
+            <button bindtap="loginHandler" class="native__button" disabled="{{loading}}" loading="{{loading}}">
+                立即登录
+            </button>
+        </view>
+        <view class="text-center">
+            <navigator class="register__tips text-center" hoverClass="none" url="/pages/account/register/index">
+                <view class="inline-block">没有日上会员？<view class="highlight">去注册</view>
+                </view>
+            </navigator>
+        </view>
+    </form>
+</view>

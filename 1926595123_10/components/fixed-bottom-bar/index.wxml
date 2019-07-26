@@ -1,0 +1,6 @@
+<view class="noop" style="height: {{staticHeight}}"></view>
+<view class="fixed-bottom-bar bottom-bar-style" style="padding-bottom: {{fitHeight}}; bottom: {{bottom+'px'}}">
+    <view class="fixed-layout-inner" style="bottom: {{fitHeight}}">
+        <slot></slot>
+    </view>
+</view>
